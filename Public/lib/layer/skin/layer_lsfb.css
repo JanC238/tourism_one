@@ -1,0 +1,10 @@
+.layui-layer-title{
+  font-size: 20px !important;
+}
+.layui-layer-border{
+  border:solid 1px #ddd !important;
+}
+.layui-layer{
+  border-radius: 8px !important;
+  overflow: hidden !important;
+}

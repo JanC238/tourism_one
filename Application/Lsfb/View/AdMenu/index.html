@@ -1,0 +1,228 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <include file="Index:head"/>
+    <link href="__PUBLIC__/admin/css/base.css" rel="stylesheet">
+    <style>.m-top-md {
+        margin-top: 10px;
+        font: 12px/1.5 Microsoft YaHei, Helvitica, Verdana, Arial, san-serif
+    }</style>
+</head>
+<body class="overflow-hidden">
+<div class="wrapper preload">
+    <include file="Index:top"/>
+    <include file="Index:left"/>
+    <div class="main-container">
+        <div class="padding-md">
+            <div class="row">
+                <div class="pageheader" style="padding:0px 10px 10px 10px; border-bottom:0px; background:#FFF">
+                    <div style="border-bottom:1px #D8DBDB solid; padding:5px;font: 12px/1.5 Microsoft YaHei,Helvitica,Verdana,Arial,san-serif;">
+                        <h3 style="margin:0;">栏目管理&nbsp;
+                            <!--<a onclick="window.location.href='';" style="color:#666666; cursor:pointer;"><i class="fa fa-refresh" aria-hidden="true"></i></a>-->
+                        </h3>
+                    </div>
+                    <div style="width:100%; padding:10px 0 10px 10px; margin-top:10px;">
+                        <if condition="in_array('/AdMenu/add',per()) OR user()['id'] eq 1">
+                            <a href="{:U('/AdMenu/add')}" class="btn btn-add"><i class="fa fa-plus"></i> 添加</a>
+                        </if>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row m-top-md">
+                <div class="col-lg-12 col-sm-6">
+                    <table width="100%" class="tables m-top-md table-hover table-striped">
+                        <tr>
+                            <td>栏目名称</td>
+                            <td>栏目链接</td>
+                            <td>栏目排序</td>
+                            <td>操作</td>
+                        </tr>
+                        <volist name="list" id="first">
+                            <eq name="first['tid']" value="0">
+                                <tr class="text-c">
+                                    <td>{$first.name}</td>
+                                    <td>{$first.url}</td>
+                                    <td>{$first.sort}</td>
+                                    <td>
+                                        <if condition="in_array('AdMenu/change',per()) OR user()['id'] eq 1">
+                                            <if condition="$first.set eq 1">
+                                                <a name="{$first.id}" class="btn btn-infos btnset">展示中</a>
+                                                <else/>
+                                                <a name="{$first.id}" class="btn btn-info btnset">不展示</a>
+                                            </if>
+                                        </if>
+                                        <if condition="in_array('/AdMenu/edit',per()) OR user()['id'] eq 1">
+                                            <a href="{:U('/AdMenu/edit',['mid'=>$first['id']])}"
+                                               class="btn btn-infos">编辑</a>
+                                        </if>
+
+                                        <if condition="in_array('/AdMenu/del',per()) OR user()['id'] eq 1">
+                                            <a name="{$first.id}" class="btn btn-infos btndel">删除</a>
+                                        </if>
+                                    </td>
+                                </tr>
+                                <volist name="list" id="second">
+                                    <if condition="$second.tid == $first.id && $second.pid == 0">
+                                        <tr class="text-c">
+                                            <td>|------{$second.name}</td>
+                                            <td>{$second.url}</td>
+                                            <td>{$second.sort}</td>
+                                            <td>
+                                                <if condition="in_array('AdMenu/change',per()) OR user()['id'] eq 1">
+                                                    <if condition="$second.set eq 1">
+                                                        <a name="{$second.id}" class="btn btn-infos btnset">展示中</a>
+                                                        <else/>
+                                                        <a name="{$second.id}" class="btn btn-info btnset">不展示</a>
+                                                    </if>
+                                                </if>
+                                                <if condition="in_array('/AdMenu/edit',per()) OR user()['id'] eq 1">
+                                                    <a href="{:U('/AdMenu/edit',['mid'=>$second['id']])}"
+                                                       class="btn btn-infos">编辑</a>
+                                                </if>
+
+                                                <if condition="in_array('/AdMenu/del',per()) OR user()['id'] eq 1">
+                                                    <a name="{$second.id}" class="btn btn-infos btndel">删除</a>
+                                                </if>
+                                            </td>
+                                        </tr>
+                                        <volist name="list" id="third">
+                                            <eq name="third['pid']" value="$second['id']">
+                                                <tr class="text-c">
+                                                    <td>|-------------{$third.name}</td>
+                                                    <td>{$third.url}</td>
+                                                    <td>{$third.sort}</td>
+                                                    <td>
+                                                        <if condition="in_array('AdMenu/change',per()) OR user()['id'] eq 1">
+                                                            <if condition="$third.set eq 1">
+                                                                <a name="{$third.id}" class="btn btn-infos btnset">展示中</a>
+                                                                <else/>
+                                                                <a name="{$third.id}" class="btn btn-info btnset">不展示</a>
+                                                            </if>
+                                                        </if>
+                                                        <if condition="in_array('/AdMenu/edit',per()) OR user()['id'] eq 1">
+                                                            <a href="{:U('/AdMenu/edit',['mid'=>$third['id']])}"
+                                                               class="btn btn-infos">编辑</a>
+                                                        </if>
+
+                                                        <if condition="in_array('/AdMenu/del',per()) OR user()['id'] eq 1">
+                                                            <a name="{$third.id}" class="btn btn-infos btndel">删除</a>
+                                                        </if>
+                                                    </td>
+                                                </tr>
+                                                <volist name="list" id="fourth">
+                                                    <eq name="fourth['pid']" value="$third['id']">
+                                                        <tr class="text-c">
+                                                            <td>|---------------------{$fourth.name}</td>
+                                                            <td>　　　　{$fourth.url}</td>
+                                                            <td>{$fourth.sort}</td>
+                                                            <td>
+                                                                <if condition="in_array('AdMenu/change',per()) OR user()['id'] eq 1">
+                                                                    <if condition="$fourth.set eq 1">
+                                                                        <a name="{$fourth.id}" class="btn btn-infos btnset">展示中</a>
+                                                                        <else/>
+                                                                        <a name="{$fourth.id}" class="btn btn-info btnset">不展示</a>
+                                                                    </if>
+                                                                </if>
+                                                                <if condition="in_array('/AdMenu/edit',per()) OR user()['id'] eq 1">
+                                                                    <a href="{:U('/AdMenu/edit',['mid'=>$fourth['id']])}"
+                                                                       class="btn btn-infos">编辑</a>
+                                                                </if>
+
+                                                                <if condition="in_array('/AdMenu/del',per()) OR user()['id'] eq 1">
+                                                                    <a name="{$fourth.id}" class="btn btn-infos btndel">删除</a>
+                                                                </if>
+                                                            </td>
+                                                        </tr>
+                                                    </eq>
+                                                </volist>
+                                            </eq>
+                                        </volist>
+                                    </if>
+                                </volist>
+                            </eq>
+                        </volist>
+                        <!--<volist name="list" id="vb" key="k">-->
+                        <!--<tr class="text-c">-->
+                        <!--<td>{$vb.name}</td>-->
+                        <!--<td>{$vb.url}</td>-->
+                        <!--<td>{$vb.sort}</td>-->
+                        <!--<td>-->
+                        <!--<if condition="$vb.set eq 1">-->
+                        <!--<a name="{$vb.id}" class="btn btn-infos btnset">展示中</a>-->
+                        <!--<else/>-->
+                        <!--<a name="{$vb.id}" class="btn btn-info btnset">不展示</a>-->
+                        <!--</if>-->
+                        <!--<a href="{:U('/AdMenu/edit',['mid'=>$vb['id']])}" class="btn btn-infos">编辑</a>-->
+                        <!--<a name="{$vb.id}" class="btn btn-infos btndel">删除</a>-->
+                        <!--</td>-->
+                        <!--</tr>-->
+                        <!--<volist name="vb['_child']" id="vc">-->
+                        <!--<tr class="text-c">-->
+                        <!--<td>|&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;{$vc.name}</td>-->
+                        <!--<td>{$vc.url}</td>-->
+                        <!--<td>{$vc.sort}</td>-->
+                        <!--<td>-->
+                        <!--<if condition="$vc.set eq 1">-->
+                        <!--<a name="{$vc.id}" class="btn btn-infos btnset">展示中</a>-->
+                        <!--<else/>-->
+                        <!--<a name="{$vc.id}" class="btn btn-info btnset">不展示</a>-->
+                        <!--</if>-->
+                        <!--<a href="{:U('/AdMenu/edit',['mid'=>$vc['id']])}" class="btn btn-infos">编辑</a>-->
+                        <!--<a name="{$vc.id}" class="btn btn-infos btndel">删除</a>-->
+                        <!--</td>-->
+                        <!--</tr>-->
+                        <!--<volist name="vc['_child']" id="vd">-->
+                        <!--<tr class="text-c">-->
+                        <!--<td>|-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;{$vd.name}</td>-->
+                        <!--<td>{$vd.url}</td>-->
+                        <!--<td>{$vd.sort}</td>-->
+                        <!--<td>-->
+                        <!--<if condition="$vd.set eq 1">-->
+                        <!--<a name="{$vd.id}" class="btn btn-infos btnset">展示中</a>-->
+                        <!--<else/>-->
+                        <!--<a name="{$vd.id}" class="btn btn-info btnset">不展示</a>-->
+                        <!--</if>-->
+                        <!--<a href="{:U('/AdMenu/edit',['mid'=>$vd['id']])}" class="btn btn-infos">编辑</a>-->
+                        <!--<a name="{$vd.id}" class="btn btn-infos btndel">删除</a>-->
+                        <!--</td>-->
+                        <!--</tr>-->
+                        <!--</volist>-->
+                        <!--</volist>-->
+                        <!--</volist>-->
+                        <tr>
+                            <td colspan='6'>
+                                <ul class="pagination" style="margin:0;">{$page}</ul>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+        </div><!-- ./padding-md -->
+    </div><!-- /main-container -->
+</div><!-- /wrapper -->
+<include file="Index:foot"/>
+<script>
+    //删除
+    $(".btndel").on("click", function () {
+        if (confirm("确定要删除数据吗")) {
+            $.maskajax('post', "{:U('/AdMenu/del')}", {"id": $(this).attr("name")}, function (data) {
+                if (data.status == 0) {
+                    alert(data.msg);
+                } else {
+                    location.reload();
+                }
+            }, '栏目删除中');
+        }
+    });
+    //设置
+    $(".btnset").on('click', function () {
+        $.maskajax('post', "{:U('/AdMenu/change')}", {"id": $(this).attr("name")}, function (data) {
+            window.location.href = '';
+        }, '栏目展示切换中');
+    });
+</script>
+</body>
+</html>

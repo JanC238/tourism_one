@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  	<head>
+	    <meta charset="utf-8">
+	    <include file="Index:head"/>
+	    <link href="__PUBLIC__/admin/css/base.css" rel="stylesheet">
+	    <style>
+	    .m-top-md{margin-top:10px; font:12px/1.5 Microsoft YaHei,Helvitica,Verdana,Arial,san-serif}
+	    .m-top-mdd,.btn.btn-info {margin-top: 10px; font: 14px/1.5 Microsoft YaHei, Helvitica, Verdana, Arial, san-serif}
+	    </style>
+  	</head>
+  	<body class="overflow-hidden">
+		<div class="wrapper preload">
+			<include file="Index:top"/>
+			<include file="Index:left"/>
+			<div class="main-container">
+				<div class="padding-md">
+					<div class="row">
+						<div class="pageheader" style="padding:0px 10px 10px 10px; border-bottom:0px; background:#FFF">
+							<div style="border-bottom:1px #D8DBDB solid; padding:5px;font: 12px/1.5 Microsoft YaHei,Helvitica,Verdana,Arial,san-serif;">
+						    	<h3 style="margin:0;">
+									<if condition="ACTION_NAME eq 'edit'">
+										栏目修改
+										<else/>
+										栏目添加
+									</if>
+
+						    		<!--<a onclick="window.location.href='';" style="color:#666666; cursor:pointer;"><i class="fa fa-refresh" aria-hidden="true"></i></a>-->
+						    	</h3>
+						    </div>
+						</div>
+					</div>
+
+					<div class="row m-top-md">
+						<div class="col-lg-12 col-sm-6">
+							<form class="Huiform" id="loginform" action="" method="post">
+							<input type="hidden" name='id' value='{$list.id}'/>
+							<table width="100%" class="tabled m-top-md" border='0'>
+								<tr>
+									<td class="col-sm-1 col-xs-3"><font style="color:red">*</font>栏目选择：</td>
+									<td class="col-sm-10 col-xs-9">
+										<select class="form-control width200" name='pid'>
+											<option value="0">--请选择--</option>
+											<volist name="vb" id="vc">
+												<option value="{$vc.id}" <if condition="$vc['id'] eq $list['tid']">selected</if>>{$vc.name}</option>
+												<volist name="vc['_child']" id="vd">
+													<option value="{$vd.id}" <if condition="$vd['id'] eq $list['pid']">selected</if>>|-----{$vd.name}</option>
+													<volist name="vd['_child']" id="last">
+														<option value="{$last.id}" <if condition="$last['id'] eq $list['pid']">selected</if>>|----------{$last.name}</option>
+													</volist>
+												</volist>
+											</volist>
+										</select><font style="color:red; font-size:12px;">说明：未选择栏目属于顶级栏目，以此类推，有|--属于该栏目下面的分类；</font>
+									</td>
+								</tr>
+								<tr>
+									<td class="col-sm-1 col-xs-3"><font style="color:red">*</font>栏目名称：</td>
+									<td class="col-sm-10 col-xs-9">
+										<input type="text" name='name' class="form-control width200" value="{$list.name}" placeholder="栏目名称"/>
+									</td>
+								</tr>
+								<tr>
+									<td class="col-sm-1 col-xs-3"><font style="color:red">*</font>栏目链接：</td>
+									<td class="col-sm-10 col-xs-9">
+										<input type="text" name="url" class="form-control width200" value="{$list.url}" placeholder="栏目链接"/>
+									</td>
+								</tr>
+								<tr>
+									<td class="col-sm-1 col-xs-3"><font style="color:red">*</font>栏目排序：</td>
+									<td class="col-sm-10 col-xs-9">
+										<input type="text" name="sort" value="{$list.sort}" class="form-control width200" value="" placeholder="栏目排序"/>
+									</td>
+								</tr>
+								<tr>
+									<td class="col-sm-1 col-xs-3"></td>
+									<td class="col-sm-10 col-xs-9">
+										<button type="submit" class="btn btn-info btnsets m-top-mdd">保存</button>
+										&nbsp;&nbsp;
+										<button type="reset"class="btn btn-infos m-top-mdd">取消</button>
+									</td>
+								</tr>
+							</table>
+							</form>
+						</div>
+					</div>
+
+				</div><!-- ./padding-md -->
+			</div><!-- /main-container -->
+		</div><!-- /wrapper -->
+	<include file="Index:foot"/>
+  	</body>
+</html>

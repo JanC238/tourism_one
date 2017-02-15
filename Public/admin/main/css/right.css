@@ -1,0 +1,56 @@
+*{margin:0 auto;padding:0;list-style-type:none;}
+a:focus{outline:none; -moz-outline-style:none;}
+body{margin:0 auto;padding:0; font-size:12px;font-family:"微软雅黑";}
+a img{border:0;}
+.cboth{clear:both;}
+th{background:#EEEEEE;}
+a{text-decoration:none; cursor:pointer; }
+ul{ list-style-type:none;}
+input{outline:none};
+.rigthboxe{ float:left; display:block; min-height:900px; background:#FFFFFF; width:100%; overflow-y:scroll;}
+.ribtopbox{ padding:10px; height:30px;border-bottom:1px #cfcfcf solid}
+.topsle{ float:left; width:50%; height:30px; *height:20px; height:20px\9;}
+.toprihe{ float:right; width:40%; height:30px}
+.shobwa img{ float:left; border:1px #D8D8D8 solid; border-radius:2px; }
+.shobwa img:hover{ background:#f1f1f1; box-shadow:0px 0px 2px 1px #C8C8C8}
+.shobwa2{border:1px #D8D8D8 solid; border-radius:2px; margin-left:15px; background:url(../image/zens.png) no-repeat; display:block; width:60px; *width:80px; width:90px\9; height:30px; float:left; line-height:30px; padding-left:30px; color:#7b7b7b}
+.shobwa2:hover{ background:#f1f1f1 url(../image/zens.png) no-repeat ; box-shadow:0px 0px 2px 1px #C8C8C8}
+.input-group{ float:right; position:relative; text-align:right}
+.input-sm{ padding:3px; font-family:"微软雅黑"; width:350px;; border:1px #cfcfcf solid; background:none; float:left;  height:30px; font-size:12px}
+.btn{ background:url(../image/shouw.png); width:30px; height:30px; cursor:pointer; border:1px #cfcfcf solid; border-left:none;*border:1px #CFCFCF solid; float:left; }
+
+.contents{font: 12px/1.5 Microsoft YaHei,Helvitica,Verdana,Arial,san-serif; font-size:12px; padding:30px 0px 0px 50px;}
+.contentslistlie{margin:0px 10px 0px 10px;font: 12px/1.5 Microsoft YaHei,Helvitica,Verdana,Arial,san-serif; font-size:12px; padding:10px 0px 0px 0px;}
+/**input**/
+.titles{font-size:14px; color:#333; float:left; margin-top:0px;}
+.sizeone{padding:5px 5px; min-width:300px; color:#666; border-top:#c0c0c0 1px solid; border-left:#D9D9D9 1px solid; border-right:#D9D9D9 1px solid; border-bottom:#D9D9D9 1px solid;}
+.sizeone:focus{border:1px #4D90FE solid;}
+.sizeone2{padding:5px 5px;color:#666; border-top:#c0c0c0 1px solid; border-left:#D9D9D9 1px solid; border-right:#D9D9D9 1px solid; border-bottom:#D9D9D9 1px solid;}
+.sizeone2:focus{border:1px #4D90FE solid;}
+.sizeones{padding:5px 5px; min-width:100px; color:#666; border-top:#c0c0c0 1px solid; border-left:#D9D9D9 1px solid; border-right:#D9D9D9 1px solid; border-bottom:#D9D9D9 1px solid;}
+.sizeones:focus{border:1px #4D90FE solid;}
+/**table**/
+.table_list{border:1px #CFCFCF solid;}
+.table_list tr th,.table_list tr td{border-right:1px #CFCFCF solid;border-bottom:1px #CFCFCF solid;  color:#333;}
+/*信息提交*/
+.subclass{cursor:pointer;display: inline-block;height: auto;max-width: 100%;padding: 3px 10px;
+line-height: 1.428571429;background-color: #fff;border: 1px solid #ddd;border-radius: 4px;
+-webkit-transition: all .2s ease-in-out;transition: all .2s ease-in-out;vertical-align: middle;}
+.upall{background:#F2F2F2; color:#666; font-weight:bold; font-size:12px;}
+.upall:hover{border:1px #B2B2B2 solid; border-radius: 3px 3px 3px 3px; box-shadow: 0px 1px 1px #888;}
+.subone{background:#F5F5F5; color:#333; border:#E2E2E2 1px solid;}
+.subtwo{background:#348EDD; color:#FFF; border:#367DCC 1px solid;}
+.subtwo:hover{background:#1E75C5;}
+.subtwos1{background:#348EDD; color:#FFF; border:#367DCC 1px solid;}
+.subtwos1:hover{background:#1E75C5; color:#FFF;}
+.subtwos2{background:#FFF; color:#666; border:#CFCFCF 1px solid;}
+.subtwos2:hover{background:#1E75C5; color:#FFF; border:#367DCC 1px solid;}
+/**分页与选定删除**/
+.footer_left{float:left; height:40px; line-height:40px;}
+.footer_right{float:right; height:40px; line-height:40px; margin-right:20px;}
+.num{background:#D1453C; color:#FFF; padding:3px 10px; margin:0px 5px;}
+.prev{background:#D1453C; color:#FFF; padding:3px 10px; margin:0px 5px;}
+.next{background:#D1453C; color:#FFF; padding:3px 10px; margin:0px 5px;}
+.current{border:1px #999 solid; padding:2px 10px; margin:0px 5px;}
+/**table添加框**/
+.tables tr td{border-left:1px #999 solid;border-bottom:1px #999 solid;}

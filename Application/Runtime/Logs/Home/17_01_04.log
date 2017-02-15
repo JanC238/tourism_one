@@ -1,0 +1,17 @@
+[ 2017-01-04T14:40:58+08:00 ] 127.0.0.1 /lsfb/permissionModel/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.009602s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.012271s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.012325s ]
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.029900s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.029966s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.008461s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.008497s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.007146s ]
+INFO: [ app_end ] --END-- [ RunTime:0.007180s ]
+

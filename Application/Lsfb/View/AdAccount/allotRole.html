@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <include file="Index:head"/>
+    <link href="__PUBLIC__/admin/css/base.css" rel="stylesheet">
+    <style>
+        .m-top-md {
+            margin-top: 10px;
+            font: 12px/1.5 Microsoft YaHei, Helvitica, Verdana, Arial, san-serif
+        }
+
+        .m-top-mdd, .btn.btn-info {
+            margin-top: 10px;
+            font: 14px/1.5 Microsoft YaHei, Helvitica, Verdana, Arial, san-serif
+        }
+    </style>
+</head>
+<body class="overflow-hidden">
+<div class="wrapper preload">
+    <include file="Index:top"/>
+    <include file="Index:left"/>
+    <div class="main-container">
+        <div class="padding-md">
+            <div class="row">
+                <div class="pageheader" style="padding:0px 10px 10px 10px; border-bottom:0px; background:#FFF">
+                    <div style="border-bottom:1px #D8DBDB solid; padding:5px;font: 12px/1.5 Microsoft YaHei,Helvitica,Verdana,Arial,san-serif;">
+                        <h3 style="margin:0;">角色分配</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row m-top-md">
+                <div class="col-lg-12 col-sm-6">
+                    <form class="Huiform" id="loginform" action="" method="post">
+                        <input type="hidden" value="{$jur.ad_user_id}" name="id"/>
+                        <table class="table table-bordered">
+                            <tr>
+                                <td>账号：</td>
+                                <td><input name="oldpassword" type="text" class="form-control width200" value="{$row.account}"
+                                           readonly="sreadonly"></td>
+                            </tr>
+                            <tf>
+                                <td>角色名称</td>
+                                <td>
+                                    <volist name="roleRows" id="role">
+                                        <!--name="ad_menu_leftmid[]"-->
+                                        <input type="radio" name="role" value="{$role.id}"
+                                               <eq name="row.roleid" value="$role.id">checked='checked'</eq>
+                                        >{$role.name}
+                                    </volist>
+                                </td>
+                            </tf>
+                <tr>
+                    <td></td>
+                    <td>
+                        <button type="submit" class="btn btn-info radius" id="admin-role-save"
+                                name="admin-role-save"><i class="icon-ok"></i> 确定
+                        </button>
+                </tr>
+                </tbody>
+                </table>
+                </form>
+            </div>
+        </div>
+
+    </div><!-- ./padding-md -->
+</div><!-- /main-container -->
+</div><!-- /wrapper -->
+<include file="Index:foot"/>
+</body>
+</html>

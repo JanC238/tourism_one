@@ -1,0 +1,59 @@
+<link href="__PUBLIC__/fileupload/lib.css" rel="stylesheet">
+<script src="//cdn.bootcss.com/vue/1.0.24/vue.js"></script>
+<script src="__PUBLIC__/fileupload/ajaxUpload.js"></script>
+<script src="__PUBLIC__/fileupload/lib.js"></script>
+<script>
+initImageUpload({
+	el: '#uploadplugin',
+    uploadpath: '__APP__/Upload/imgupload',
+    onlineimgurl: '__APP__/Upload/listimg',
+    features:{
+                httpimg:false,
+                uploadimg:true,
+                onlineimg:false
+            },
+    save: function(path) {
+    	console.log(path)//点击保存回调
+        var img=path.img;//图片集合
+    	var type=path.type;//图片由哪上传的
+    	var ht="";
+    	for(var i=0;i<img.length;i++){
+    		if(img[i]['img']!=''){
+            	ht+='<div class="mainimg">'+
+            		
+            		'<input type="hidden" name="list_img" class="imgd" value="'+img[i]['img']+'"/>'+
+    				'<input type="hidden" name="list_imgnum" class="imgd2" value="'+path.type+'"/>'+
+        			'<img src="__PUBLIC__/admin/images/biao/ww.png" class="closeimg" />'+
+                	'<div class="mimg">'+
+                	'<div class="mimg-1">';
+                if(path.type==1){
+    	           	ht+='<img src="__PUBLIC__/images/'+img[i]['img']+'" height="80"/>';
+    	        }else{
+    	           	ht+='<img src="'+img[i]['img']+'" height="80"/>';
+    	        }
+                	ht+='</div>'+
+               	 	'</div>'+
+                	'<input type="text" name="img_bewrite" value="'+img[i]['title']+'" placeholder="alt描述" class="inputs" style="float:left; margin:125px 0 0 0px; border-radius: 0px; -moz-border-radius: 0px; webkit-border-radius: 0px;"/>';
+            		
+	               	'</div>'+
+	               	'</div>';
+            }
+    	}
+        $(".imgupload").html(ht);
+        $(".closeimg").click(function(){
+          	$(this).parent().remove();
+        });
+        
+    },
+    onlinemultselect: false, //图片多选
+    imgurl: '__PUBLIC__/images/', //图片地址前缀
+    style:{
+    	openbtn:'btn btn-info',
+        savebtn:'btn btn-info',
+        canclebtn:'btn'
+    }
+})
+$(".closeimg").click(function(){
+	$(this).parent().remove();
+});
+</script>

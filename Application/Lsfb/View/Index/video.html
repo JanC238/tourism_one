@@ -1,0 +1,50 @@
+<!-- <link rel="stylesheet" href="__PUBLIC__/videoupload/video.css"> -->
+<script data-main="lib" src="//cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
+<script data-main="lib" src="//cdn.bootcss.com/vue/1.0.24/vue.js"></script>
+<script data-main="lib" src="__PUBLIC__/videoupload/ajaxUpload.js"></script>
+<script data-main="lib" src="__PUBLIC__/videoupload/video.js"></script>
+<script>
+    initVideoUpload({
+        el: '#fileupload',
+//        uploadpath: '__APP__/Upload/videoupload',
+        features:{
+            httpvideo:true,
+            uploadvideo:true
+        },
+        save: function(path) {
+            console.log(path)
+            var img=path.video;//图片集合
+	    	var type=path.type;//图片由哪上传的
+	    	var ht="";
+	    	for(var i=0;i<img.length;i++){
+	    		if(img[i]['video']!=''){
+	            	ht+='<div class="mainimgs">'+
+	            		'<input type="hidden" name="list_video" class="imgd" value="'+img[i]['video']+'"/>'+
+	                    '<input type="hidden" name="list_videonum" class="imgd2" value="'+path.type+'"/>'+
+		        		'<img src="__PUBLIC__/admin/images/biao/ww.png" class="closeimg"/>'+
+		                '<div class="mimgs">'+
+		                '<div class="mimg-1">'+
+		               	'<div style="height:80px; width:80px;">'+
+		               	'<a href="__PUBLIC__/video/'+img[i]['video']+'" target="_blank">'+
+		               	'<img src="__PUBLIC__/admin/images/video.png" style="margin:24px 17px;"/></a></div>'+
+		            	'</div>'+
+		               	'</div>'+
+		               	'</div>';
+	            }
+	    	}
+	        $(".videoupload").html(ht);
+	        $(".closeimg").click(function(){
+	          	$(this).parent().remove();
+	        });
+        },
+        onlinemultselect: true, //图片多选
+        videourl: '__PUBLIC__/video/', //视频地址前缀
+        style:{
+            openbtn:'btn btn-info',
+            savebtn:'btn btn-info',
+            canclebtn:'btn'
+        }
+    })
+</script>
+</body>
+</html>

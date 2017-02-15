@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  	<head>
+	    <meta charset="utf-8">
+	    <include file="Index:head"/>
+	    <link href="__PUBLIC__/admin/css/base.css" rel="stylesheet">
+	    <style>
+	    .m-top-md{margin-top:10px; font:12px/1.5 Microsoft YaHei,Helvitica,Verdana,Arial,san-serif}
+	    .m-top-mdd,.btn.btn-info {margin-top: 10px; font: 14px/1.5 Microsoft YaHei, Helvitica, Verdana, Arial, san-serif}
+	    </style>
+  	</head>
+  	<body class="overflow-hidden">
+		<div class="wrapper preload">
+			<include file="Index:top"/>
+			<include file="Index:left"/>
+			<div class="main-container">
+				<div class="padding-md">
+					<div class="row">
+						<div class="pageheader" style="padding:0px 10px 10px 10px; border-bottom:0px; background:#FFF">
+							<div style="border-bottom:1px #D8DBDB solid; padding:5px;font: 12px/1.5 Microsoft YaHei,Helvitica,Verdana,Arial,san-serif;">
+								<if condition="ACTION_NAME eq 'edit'">
+									<h3 style="margin:0;">角色修改</h3>
+									<else/>
+									<h3 style="margin:0;">角色添加</h3>
+								</if>
+						    </div>
+						</div>
+					</div>
+
+					<div class="row m-top-md">
+						<div class="col-lg-12 col-sm-6">
+							<form class="Huiform" id="loginform" action="" method="post">
+								<input type="hidden" name="id" value="{$row.id}"/>
+								<table width="100%" class="tabled m-top-md" border='0'>
+									<tbody>
+									<tr>
+										<td class="col-sm-1 col-xs-3"><font style="color:red">*</font>角色名称：</td>
+										<td><input name="name" type="text" class="form-control width200" value="{$row.name}" placeholder="角色名称" /></td>
+									</tr>
+									<tr>
+										<td class="col-sm-1 col-xs-3">角色描述：</td>
+										<td>
+											<textarea name="bewrite"  class="form-control width200" placeholder="角色描述">{$row.bewrite}</textarea>
+										</td>
+									</tr>
+									<tr>
+										<th></th>
+										<td>
+											<button type="submit" class="btn btn-info radius" id="admin-role-save" name="admin-role-save"><i class="icon-ok"></i> 确定</button>
+										</td>
+									</tr>
+									</tbody>
+								</table>
+							</form>
+						</div>
+					</div>
+
+				</div><!-- ./padding-md -->
+			</div><!-- /main-container -->
+		</div><!-- /wrapper -->
+	<include file="Index:foot"/>
+  	</body>
+</html>

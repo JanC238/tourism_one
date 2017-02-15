@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <include file="Index:head"/>
+    <link href="__PUBLIC__/admin/css/base.css" rel="stylesheet">
+    <style>.m-top-md {
+        margin-top: 10px;
+        font: 12px/1.5 Microsoft YaHei, Helvitica, Verdana, Arial, san-serif
+    }</style>
+</head>
+<body class="overflow-hidden">
+<div class="wrapper preload">
+    <include file="Index:top"/>
+    <include file="Index:left"/>
+    <div class="main-container">
+        <div class="padding-md">
+            <div class="row">
+                <div class="pageheader" style="padding:0px 10px 10px 10px; border-bottom:0px; background:#FFF">
+                    <div style="border-bottom:1px #D8DBDB solid; padding:5px;font: 12px/1.5 Microsoft YaHei,Helvitica,Verdana,Arial,san-serif;">
+                        <h3 style="margin:0;">管理员管理</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row m-top-md">
+                <if condition="in_array('AdAccount/add',per()) OR user()['id'] eq 1">
+                    <div class="col-lg-12 col-sm-6" style="margin-bottom: 20px;">
+                        <form class="Huiform" method="post" action="{:U('AdAccount/add')}" target="_self">
+
+                            <input type="text" placeholder="帐号" style="margin-left: -10px;" autocomplete="off"
+                                   name="account" class="form-control width200 pull-left">
+                            <input type="password" placeholder="密码" style="margin-left: 2px;" autocomplete="off"
+                                   name="password"
+                                   class="form-control width200 pull-left">
+                            <button type="button" id="tij" style="margin-left: 4px" class="btn btn-info"
+                                    onclick="submit();"><i class="icon-plus"></i> 添加
+                            </button>
+                        </form>
+                    </div>
+                </if>
+
+                <table width="99%" class="tables m-top-md table-hover table-striped">
+                    <tr>
+                        <td colspan="7">管理员列表</td>
+                    </tr>
+                    <tr class="text-c">
+                        <td>序号</td>
+                        <td>登录名</td>
+                        <td>用户名</td>
+                        <td>角色</td>
+                        <td>登陆状态</td>
+                        <td>角色分配</td>
+                        <td>操作</td>
+                    </tr>
+                    <volist name="rows" id="vb" key="k">
+                        <tr class="text-c">
+                            <td>{$k}</td>
+                            <td>{$vb.account}</td>
+                            <td>
+                                <volist name="users" id="user" >
+                                    <eq name="user.id" value="$vb['userid']">
+                                        {$user.name}
+                                    </eq>
+                                </volist>
+                            </td>
+                            <td>
+                                <volist name="roles" id="role">
+                                    <eq name="role.id" value="$vb.roleid">
+                                        {$role.name}
+                                    </eq>
+                                </volist>
+                            </td>
+                            <td>
+                                <if condition="in_array('AdAccount/change',per()) OR user()['id'] eq 1">
+                                    <if condition="$vb.status eq 1">
+                                        <a href="javascript:;"
+                                           class="btn btn-infos radius btnset" name="{$vb.id}">可登陆</a>
+                                        <else/>
+                                        <a href="javascript:;"
+                                           class="btn btn-info radius btnset" name="{$vb.id}">禁登陆</a>
+                                    </if>
+                                </if>
+                            </td>
+                            <td>
+                                <if condition="in_array('AdAccount/allotRole',per()) OR user()['id'] eq 1">
+                                    <a href="{:U('/AdAccount/allotRole',array('aid'=>$vb['id']))}"
+                                       class="btn btn-infos radius">角色分配</a>
+                                </if>
+                            </td>
+
+                            <td>
+
+                                <if condition="in_array('AdAccount/edit',per()) OR user()['id'] eq 1">
+                                    <a title="编辑" href="{:U('/AdAccount/edit',array('aid'=>$vb['id']))}"
+                                       class="btn btn-info"
+                                    ><i class="icon-edit"></i>编辑</a>
+                                </if>
+                                <if condition="in_array('AdUser/index',per()) OR user()['id'] eq 1">
+                                    <a title="绑定" href="{:U('/AdUser/index')}" class="btn btn-infos"
+                                    ><i class="icon-trash "></i>绑定用户信息</a>
+                                </if>
+                                <if condition="in_array('AdAccount/edit',per()) OR user()['id'] eq 1">
+                                    <a title="删除" href="javascript:;" name="{$vb.id}" class="btn btn-infos del"
+                                    ><i class="icon-trash "></i>删除</a>
+                                </if>
+                            </td>
+                        </tr>
+                    </volist>
+                </table>
+            </div>
+        </div>
+
+    </div><!-- ./padding-md -->
+</div><!-- /main-container -->
+</div><!-- /wrapper -->
+<include file="Index:foot"/>
+<script>
+    //删除
+    $(".del").on("click", function () {
+        if (confirm("确定要删除账号吗")) {
+            $.maskajax('post', "{:U('AdAccount/del')}", {"id": $(this).attr("name")}, function (data) {
+                if (data === 0) {
+                    alert('删除失败');
+                } else {
+                    location.reload();
+                }
+            }, '账号删除中');
+        }
+    });
+    //设置
+    $(".btnset").on('click', function () {
+        $.maskajax('post', "{:U('AdAccount/change')}", {"id": $(this).attr("name")}, function (data) {
+            if (data === 0) {
+                alert('更改失败');
+            } else {
+                location.reload();
+            }
+        }, '账号变更中');
+    });
+</script>
+</body>
+</html>

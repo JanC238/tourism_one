@@ -1,0 +1,11 @@
+<link rel="stylesheet" type="text/css" media="all" href="__PUBLIC__/admin/ttime/daterangepicker-bs3.css" />
+<script type="text/javascript" src="__PUBLIC__/admin/ttime/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/admin/ttime/moment.js"></script>
+<script type="text/javascript" src="__PUBLIC__/admin/ttime/daterangepicker.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+  	$('#reservation').daterangepicker(null, function(start, end, label) {
+       	console.log(start.toISOString(), end.toISOString(), label);
+    });
+});
+</script>

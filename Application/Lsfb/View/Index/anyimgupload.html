@@ -1,0 +1,73 @@
+    <link rel="stylesheet" href="__PUBLIC__/fileupload/lib.css">
+    <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/vue/1.0.24/vue.min.js"></script>
+    <script src="__PUBLIC__/fileupload/ajaxUpload.js"></script>
+    <script src="__PUBLIC__/fileupload/lib.js"></script>
+    <script>
+    initImageUpload({
+        el: '#uploadplugind',
+        uploadpath: '__APP__/Upload/imgupload',
+        onlineimgurl: '__APP__/Upload/listimg',
+        features: {
+            httpimg: false,
+            uploadimg: true,
+            onlineimg: false
+        },
+        save: function(path) {
+            console.log(path) //点击保存回调
+            var img=path.img;//图片集合
+        	var type=path.type;//图片由哪上传的
+        	var imgs="";
+        	var htl="";
+        	for(var i=0;i<img.length;i++){
+        		if((i+1)==img.length){
+        			imgs+=img[i]['img'];
+        		}else{
+        			imgs+=img[i]['img']+",";
+        		}
+        		htl+="<div class='mainimgsd' style='float:left; width:110px; margin:10px; border:1px #D8DBDB solid; padding:5px; text-align:center;position:relative;'>"+
+	        		 "<div style='float:left; width:100px; height:100px; background:#F3F3F3; overflow: hidden;'>"+
+        			 "<a href='__PUBLIC__/images/"+img[i]['img']+"' target='_blank'>"+
+        			 "<img src='__PUBLIC__/images/"+img[i]['img']+"' width='100'/>"+
+        			 "</a>"+
+        			 "</div>"+
+    				 "<div name='"+img[i]['img']+"' class='btndelsd' style='position: absolute;top: -10px;right: -10px;background-color: #bd2a2a;color: #fff;width: 20px;height: 20px;border-radius: 50%;'><i class='fa fa-times' aria-hidden='true'></i></div>"+
+    				 "</div>";
+        	}
+        	htl+="<input type='hidden' value='"+imgs+"' name='any_img'/>";
+        	$(".imguploads").html(htl);
+        	
+        	$(".btndelsd").on("click",function(){
+            	var imgx=$(this).attr("name");
+            	var imgd=$("input[name='any_img']").val();
+            	var imgs=imgd.split(",");
+            	var img2="";img3="";
+            	for(var i=0;i<imgs.length;i++){
+            		if((i+1)==imgs.length){
+            			if(imgx!=imgs[i]){
+            				img2+=imgs[i];
+            			}
+            		}else{
+            			if(imgx!=imgs[i]){
+            				img2+=imgs[i]+",";
+            			}
+            		}
+            	}
+            	if(img2.substring(img2.length*1-1,img2.length)==','){
+            		img3=img2.substring(0,img2.length*1-1);
+            	}else{
+            		img3=img2;
+            	}
+            	$("input[name='any_img']").val(img3);
+            	$(this).parent().remove();
+            });
+        },
+        onlinemultselect: false, //图片多选
+        imgurl: '__PUBLIC__/images/', //图片地址前缀
+        style: {
+            openbtn: 'btn btn-info',
+            savebtn: 'btn btn-info',
+            canclebtn: 'btn'
+        }
+    })
+    </script>

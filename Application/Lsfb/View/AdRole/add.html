@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  	<head>
+	    <meta charset="utf-8">
+	    <include file="Index:head"/>
+	    <link href="__PUBLIC__/admin/css/base.css" rel="stylesheet">
+	    <style>
+	    .m-top-md{margin-top:10px; font:12px/1.5 Microsoft YaHei,Helvitica,Verdana,Arial,san-serif}
+	    .m-top-mdd,.btn.btn-info {margin-top: 10px; font: 14px/1.5 Microsoft YaHei, Helvitica, Verdana, Arial, san-serif}
+	    </style>
+  	</head>
+  	<body class="overflow-hidden">
+		<div class="wrapper preload">
+			<include file="Index:top"/>
+			<include file="Index:left"/>
+			<div class="main-container">
+				<div class="padding-md">
+					<div class="row">
+						<div class="pageheader" style="padding:0px 10px 10px 10px; border-bottom:0px; background:#FFF">
+							<div style="border-bottom:1px #D8DBDB solid; padding:5px;font: 12px/1.5 Microsoft YaHei,Helvitica,Verdana,Arial,san-serif;">
+						    	<h3 style="margin:0;">角色添加</h3>
+						    </div>
+						</div>
+					</div>
+
+					<div class="row m-top-md">
+						<div class="col-lg-12 col-sm-6">
+							<form class="Huiform" id="loginform" action="__APP__/System/role/action/raddpost" method="post">
+								<table width="100%" class="tabled m-top-md" border='0'>
+									<tbody>
+									<tr>
+										<td class="col-sm-1 col-xs-3"><font style="color:red">*</font>角色名称：</td>
+										<td class="col-sm-10 col-xs-9">
+											<input type="text" name="ad_role_name" class="form-control width200" value="" placeholder="角色名称" />
+										</td>
+									</tr>
+									<tr>
+										<td class="col-sm-1 col-xs-3"><font style="color:red">*</font>角色描述：</td>
+										<td>
+											<input type="text" name="ad_role_bewrite" class="form-control input-text width200" placeholder="角色描述"/>
+										</td>
+									</tr>
+									<tr>
+										<th></th>
+										<td>
+											<button type="submit" class="btn" id="admin-role-save" name="admin-role-save"> 确定</button>
+										</td>
+									</tr>
+									</tbody>
+								</table>
+							</form>
+						</div>
+					</div>
+
+				</div><!-- ./padding-md -->
+			</div><!-- /main-container -->
+		</div><!-- /wrapper -->
+	<include file="Index:foot"/>
+  	</body>
+</html>

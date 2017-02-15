@@ -1,0 +1,55 @@
+<style>
+.topa{background:#307EC7;}
+</style>
+<header class="top-nav">
+	<div class="top-nav-inner">
+		<div class="nav-header" style="padding-top:3px;">
+			<img src="__PUBLIC__/admin/images/logo.png" height="40"/>
+		</div>
+		<div class="nav-container">
+			<!-- <button type="button" class="navbar-toggle pull-left sidebar-toggle" style="margin-top:3px; margin-bottom:0px;" id="sidebarToggleLG">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button> -->
+			<ul class="nav-notification">	
+				<li class="nav-item navmenulogo"><i class="fa fa-list-ul"></i></li>
+				<volist name="menus" id="menu" key='k'>
+					<li class="nav-item"><a <if condition="$menu['id'] eq $menuTid">class="topa"</if> href="{:U('/Index/index',array('id'=>$menu['id']))}" style="padding:16px 17px;">{$menu.name}</a></li>
+				</volist>
+				<!-- <li class="search-list">
+				<div class="search-input-wrapper">
+					<div class="search-input">
+						<input type="text" class="form-control input-sm inline-block">
+						<a href="#" class="input-icon text-normal"><i class="ion-ios7-search-strong"></i></a>
+					</div>
+				</div>
+				</li> -->
+			</ul>
+			<div class="pull-right m-right-sm">
+				<div class="user-block hidden-xs">
+					<a href="#" id="userToggle" data-toggle="dropdown">
+						<img src="__PUBLIC__/admin/images/logout.png" alt="" class="inline-block user-profile-pic">
+						<div class="user-detail inline-block">管理员<i class="fa fa-caret-down"></i></div>
+					</a>
+					<div id="showd" class="panel border dropdown-menu user-panel">
+						<div class="panel-body paddingTB-sm">
+							<ul>
+								<li>
+									<a href="__APP__/" id="showds">
+										<span class="m-left-xs">首页</span>
+									</a>
+								</li>
+								<li>
+									<a href="{:U('AdAccount/logout')}" id="showds">
+										<span class="m-left-xs">退出</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div><!-- ./top-nav-inner -->	
+</header>

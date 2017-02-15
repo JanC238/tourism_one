@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  	<head>
+	    <meta charset="utf-8">
+	    <include file="Index:head"/>
+	    <link href="__PUBLIC__/admin/css/base.css" rel="stylesheet">
+	    <style>
+	    .m-top-md{margin-top:10px; font:12px/1.5 Microsoft YaHei,Helvitica,Verdana,Arial,san-serif}
+	    .m-top-mdd,.btn.btn-info {margin-top: 10px; font: 14px/1.5 Microsoft YaHei, Helvitica, Verdana, Arial, san-serif}
+	    </style>
+  	</head>
+  	<body class="overflow-hidden">
+		<div class="wrapper preload">
+			<include file="Index:top"/>
+			<include file="Index:left"/>
+			<div class="main-container">
+				<div class="padding-md">
+					<div class="row">
+						<div class="pageheader" style="padding:0px 10px 10px 10px; border-bottom:0px; background:#FFF">
+							<div style="border-bottom:1px #D8DBDB solid; padding:5px;font: 12px/1.5 Microsoft YaHei,Helvitica,Verdana,Arial,san-serif;">
+								<if condition="ACTION_NAME eq 'edit'">
+									<h3 style="margin:0;">修改用户信息</h3>
+									<else/>
+									<h3 style="margin:0;">添加用户信息</h3>
+								</if>
+						    </div>
+						</div>
+					</div>
+
+					<div class="row m-top-md">
+						<div class="col-lg-12 col-sm-6">
+							<form class="Huiform" id="loginform" action="" method="post">
+								<table width="50%" class="tabled table-bordered m-top-md">
+									<tbody>
+									<tr>
+										<if condition="ACTION_NAME eq 'edit'">
+											<td>更换绑定账号：</td>
+											<font style="color:red">注意：如果已绑定账号，更换绑定账号会与原绑定账号解除绑定</font>
+											<else/>
+											<td>选择绑定账号：</td>
+										</if>
+										<td>
+											<select name="account" id="" class="form-control width200 accSel">
+												<option value="0">--请选择--</option>
+												<volist name="accounts" id="account">
+													<option value="{$account.id}"
+															<eq name="account['id']" value="$row['accountId']">
+																selected='selected'
+															</eq>
+													>{$account.account}</option>
+												</volist>
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<td>姓名：</td>
+										<td><input name="name" type="text" class="form-control width200" value="{$row.name}" placeholder="姓名" /></td>
+									</tr>
+									<tr>
+										<td>联系电话：</td>
+										<td><input name="tel" type="text" class="form-control width200" value="{$row.tel}" placeholder="联系电话" /></td>
+									</tr>
+									<tr>
+										<td>联系邮箱：</td>
+										<td><input name="email" type="email" class="form-control width200" value="{$row.email}" placeholder="联系邮箱" /></td>
+									</tr>
+									<tr>
+										<td>备注：</td>
+										<td><input name="bewrite" type="text" class="form-control width200" value="{$row.bewrite}" placeholder="备注" /></td>
+									</tr>
+									<tr>
+										<td>
+											<button type="submit" class="btn btn-info" id="admin-role-save" name="admin-role-save"><i class="icon-ok"></i> 确定</button>
+										</td>
+										<td>
+										</td>
+									</tr>
+									</tbody>
+								</table>
+							</form>
+						</div>
+					</div>
+
+				</div><!-- ./padding-md -->
+			</div><!-- /main-container -->
+		</div><!-- /wrapper -->
+	<include file="Index:foot"/>
+  	</body>
+</html>

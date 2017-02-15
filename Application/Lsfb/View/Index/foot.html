@@ -1,0 +1,98 @@
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<!-- Jquery -->
+
+<script src="__PUBLIC__/admin/js/jquery-1.11.1.min.js"></script>
+<!-- Velocity -->
+<script src="//cdn.bootcss.com/velocity/1.2.3/velocity.min.js"></script>
+<script src="//cdn.bootcss.com/velocity/1.2.3/velocity.ui.min.js"></script>
+<!-- Bootstrap -->
+<script src="__PUBLIC__/admin/bootstrap/js/bootstrap.min.js"></script>
+
+
+<!-- Slimscroll -->
+<script src='__PUBLIC__/admin/js/jquery.slimscroll.min.js'></script>
+
+<!-- Morris -->
+<script src='__PUBLIC__/admin/js/rapheal.min.js'></script>
+<script src='__PUBLIC__/admin/js/morris.min.js'></script>
+
+<!-- Datepicker -->
+<script src='__PUBLIC__/admin/js/uncompressed/datepicker.js'></script>
+
+<!-- Sparkline -->
+<script src='__PUBLIC__/admin/js/sparkline.min.js'></script>
+
+<!-- Skycons -->
+<script src='__PUBLIC__/admin/js/uncompressed/skycons.js'></script>
+
+<!-- Popup Overlay -->
+<script src='__PUBLIC__/admin/js/jquery.popupoverlay.min.js'></script>
+
+<!-- Easy Pie Chart -->
+<script src='__PUBLIC__/admin/js/jquery.easypiechart.min.js'></script>
+
+<!-- Sortable -->
+<script src='__PUBLIC__/admin/js/uncompressed/jquery.sortable.js'></script>
+
+<!-- Owl Carousel -->
+<script src='__PUBLIC__/admin/js/owl.carousel.min.js'></script>
+
+<!-- Modernizr -->
+<script src='__PUBLIC__/admin/js/modernizr.min.js'></script>
+
+<!-- Simplify -->
+<script src="__PUBLIC__/admin/js/simplify/simplify.js"></script>
+<!--<script src="__PUBLIC__/admin/js/simplify/simplify_dashboard.js"></script>-->
+
+<!-- Notify -->
+<script src="__PUBLIC__/lib/nprogress/nprogress.min.js"></script>
+<script src="__PUBLIC__/lib/toastr/toastr.min.js"></script>
+<!--layer-->
+<script src="__PUBLIC__/lib/layer/layer.js"></script>
+<script src="__PUBLIC__/lib/mask/mask.js"></script>
+<script src="__PUBLIC__/admin/time/jquery.datetimepicker.js"></script>
+
+
+
+<script>
+		toastr.options.timeOut = 200
+    // var a = $.mask('123')
+		// NProgress.start()
+		// toastr.info("加载中，请稍后");
+    // setTimeout(function() {
+    //     a.remove()
+		// 		NProgress.done()
+		// 		toastr.success("加载成功");
+    // }, 6000)
+    $(function() {
+        $('.chart').easyPieChart({
+            easing: 'easeOutBounce',
+            size: '140',
+            lineWidth: '7',
+            barColor: '#7266ba',
+            onStep: function(from, to, percent) {
+                $(this.el).find('.percent').text(Math.round(percent));
+            }
+        });
+        $('.sortable-list').sortable();
+        $('.todo-checkbox').click(function() {
+            var _activeCheckbox = $(this).find('input[type="checkbox"]');
+            if (_activeCheckbox.is(':checked')) {
+                $(this).parent().addClass('selected');
+            } else {
+                $(this).parent().removeClass('selected');
+            }
+        });
+        //Delete Widget Confirmation
+        $('#deleteWidgetConfirm').popup({
+            vertical: 'top',
+            pagecontainer: '.container',
+            transition: 'all 0.3s'
+        });
+        $(".user-detail").on("click", function() {
+            $("#showd").css("display", "block");
+        });
+    });
+</script>

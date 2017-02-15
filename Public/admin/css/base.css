@@ -1,0 +1,595 @@
+.ahover {
+    text-shadow: 0 1px 0 #fff;
+    font-family: '微软雅黑';
+    padding: 5px 12px;
+    color: #333;
+    background-color: #f3f3f3;
+    border: 1px solid #dcdcdc;
+    font-size: 13px;
+    text-decoration: none;
+    cursor: pointer;
+    font: 12px/1.5 Microsoft YaHei, Helvitica, Verdana, Arial, san-serif;
+    transition: all .3s ease;
+}
+
+.cboth {
+    clear: both
+}
+
+.ahover:hover,
+.ahover:focus,
+.ahover:active,
+.ahover.active {
+    color: #fff;
+    font-weight: 100;
+    background-color: #368EE0;
+}
+
+.float {
+    float: left;
+}
+
+.rights {
+    margin-right: 10px;
+    -webkit-box-shadow: inset 0 0px 0px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 0px 0px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+.right {
+    float: right;
+}
+
+.lineheight {
+    line-height: 30px;
+}
+
+.tabled {
+    margin-left: 5px;
+    font-size: 14px;
+}
+
+.tabled tr td {
+    padding: 9px;
+    font-size: 12px !important;
+}
+
+.width100 {
+    width: 100px;
+}
+
+.width200 {
+    width: 200px;
+}
+
+.width500 {
+    width: 500px;
+}
+
+.tables {
+    margin-left: 5px;
+    border-top: 1px solid #D8DBDB;
+    border-left: 1px solid #D8DBDB;
+}
+
+.tables tr td {
+    padding: 8px;
+    border-right: 1px solid #D8DBDB;
+    border-bottom: 1px solid #D8DBDB;
+}
+
+.pagination {
+    display: inline-block;
+    padding-left: 0;
+    margin: 20px 0;
+    border-radius: 4px
+}
+
+.pagination > li {
+    display: inline
+}
+
+.pagination > li > a,
+.pagination > li > span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #428bca;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd
+}
+
+.pagination > li:first-child > a,
+.pagination > li:first-child > span {
+    margin-left: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px
+}
+
+.pagination > li:last-child > a,
+.pagination > li:last-child > span {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px
+}
+
+.pagination > li > a:hover,
+.pagination > li > span:hover,
+.pagination > li > a:focus,
+.pagination > li > span:focus {
+    color: #2a6496;
+    background-color: #eee;
+    border-color: #ddd
+}
+
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+    z-index: 2;
+    color: #fff;
+    cursor: default;
+    background-color: #428bca;
+    border-color: #428bca
+}
+
+.pagination > .disabled > span,
+.pagination > .disabled > span:hover,
+.pagination > .disabled > span:focus,
+.pagination > .disabled > a,
+.pagination > .disabled > a:hover,
+.pagination > .disabled > a:focus {
+    color: #777;
+    cursor: not-allowed;
+    background-color: #fff;
+    border-color: #ddd
+}
+
+.pagination-lg > li > a,
+.pagination-lg > li > span {
+    padding: 10px 16px;
+    font-size: 18px
+}
+
+.pagination-lg > li:first-child > a,
+.pagination-lg > li:first-child > span {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px
+}
+
+.pagination-lg > li:last-child > a,
+.pagination-lg > li:last-child > span {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px
+}
+
+.pagination-sm > li > a,
+.pagination-sm > li > span {
+    padding: 5px 10px;
+    font-size: 12px
+}
+
+.pagination-sm > li:first-child > a,
+.pagination-sm > li:first-child > span {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px
+}
+
+.pagination-sm > li:last-child > a,
+.pagination-sm > li:last-child > span {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px
+}
+
+/**input**/
+
+.inputs {
+    padding: 0 5px;
+    height: 35px;
+    border: 1px #CCC solid;
+    width: 278px;
+}
+
+.closeimg {
+    position: absolute;
+    cursor: pointer;
+    z-index: 10;
+    left: 90px;
+    top: 0px;
+}
+
+.mimg {
+    position: absolute;
+    z-index: 9;
+    margin: 10px 0 0 0;
+    padding: 10px;
+    width: 100px;
+    height: 100px;
+    border: 1px #CCC solid;
+}
+
+.mainimg {
+    width: 400px;
+    position: relative;
+    height: 165px;
+    margin-bottom: 10px;
+}
+
+.mimg-1 {
+    float: left;
+    width: 80px;
+    height: 80px;
+    background: #f3f3f3;
+}
+
+.mimg-2 {
+    float: left;
+    margin: 10px 0px 0px 10px;
+    width: 278px;
+    height: 35px;
+    background: #f3f3f3;
+    border: 1px #CCC solid;
+}
+
+.mimgs {
+    position: absolute;
+    z-index: 9;
+    margin: 10px 0 0 0;
+    padding: 10px;
+    width: 103px;
+    height: 100px;
+    border: 1px #CCC solid;
+}
+
+.mainimgs {
+    width: 114px;
+    position: relative;
+    height: 110px;
+    margin-bottom: 10px;
+}
+
+.top-main {
+    border-bottom: 1px #DDDDDD solid;
+    margin-bottom: 0px;
+    width: 100%;
+    margin-top: 5px;
+    height: 36px;
+}
+
+.top-main-common {
+    padding: 8px 12px;
+    float: left;
+    mrgin-right: 3px;
+}
+
+.top-main-commond {
+    padding: 10px 12px;
+    float: left;
+    mrgin-right: 3px;
+    cursor: pointer;
+}
+
+.top-main-commond-xz {
+    border-bottom: 1px #FFF solid;
+    background: #FFF;
+    height: 40px;
+}
+
+.show1,
+.show2,
+.show3,
+.show4 {
+    display: none;
+}
+
+.top-main-show {
+    border-left: 1px #DDDDDD solid;
+    border-right: 1px #DDDDDD solid;
+    border-bottom: 1px #FFF solid;
+    border-top: 1px #DDDDDD solid;
+}
+
+.top-main a:hover,
+.top-main-common:hover {
+    color: #666666;
+    background: #EEEEEE;
+}
+
+/**list**/
+
+.list-left {
+    float: left;
+    height: 80px;
+    width: 80px;
+    background: #E1E1E1
+}
+
+.list-right-top {
+    float: left;
+    height: 40px;
+    margin-left: 20px;
+    width: 490px;
+    line-height: 40px;
+}
+
+.list-right-bottom {
+    float: left;
+    height: 40px;
+    margin-left: 20px;
+    width: 490px;
+}
+
+/*------*/
+
+body,
+* {
+    font-family: "Microsoft YaHei"
+}
+
+.blue-panel {
+    background-color: #368EE0;
+    color: #fff;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.blue-panel .num {
+    font-size: 30px;
+}
+
+.panel {
+    border-top-width: 1px;
+    border-radius: 0;
+}
+
+.well,
+.list-group-item:first-child,
+.list-group-item:last-child {
+    border-radius: 0;
+}
+
+.headerimg {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: auto;
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.panel .name {
+    font-size: 25px;
+    margin-top: 20px;
+}
+
+.sizepanel {
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+.badge {
+    background-color: #fff;
+}
+
+/*response figure---start*/
+
+.figure-list {
+    margin: 0;
+    padding: 0;
+}
+
+.figure-list:after {
+    content: "";
+    display: block;
+    clear: both;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+.figure-list li {
+    list-style: none;
+    float: left;
+    width: 100%;
+    margin: 0 2% 2% 0;
+}
+
+.figure-list figure {
+    position: relative;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    margin: 0;
+    padding-bottom: 100%;
+    /* 关键就在这里 */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.figure-list figure a {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    font-size: 1em;
+    justify-content: center;
+    align-items: center;
+}
+
+.figurecontainer {
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+}
+
+.figurecontainer i {
+    font-size: 40px;
+}
+
+/*response figure---end*/
+
+/*fixnavbar*/
+
+.top-nav .top-nav-inner {
+    border-top: 0px;
+}
+
+.top-nav .nav-notification > li > a {
+    color: #fff;
+    cursor: pointer;
+}
+
+.nav-item:hover a,
+.nav-item.active a,
+.top-nav .nav-notification > li > a:focus,
+.top-nav .nav-notification > li > a:hover {
+    background-color: #307ec7;
+}
+
+.btn-add {
+    border: solid 1px #cacaca;
+    padding: 3px 15px;
+    border-radius: 1px;
+    background-color: #f5f5f5;
+    color: #636363;
+}
+
+.btn-add:hover {
+    box-shadow: 1px 1px 4px #ddd;
+}
+
+.top-nav .nav-header {
+    position: relative;
+    float: left;
+    width: 240px;
+    height: 48px;
+    text-align: left;
+}
+
+.top-nav .user-block {
+    margin-right: 0;
+    padding: 9px 20px;
+}
+
+.m-right-sm {
+    margin-right: 0;
+    margin-top: 0;
+}
+
+.m-right-sm:hover {
+    background-color: #247ac9;
+}
+
+.top-nav .user-block .user-profile-pic {
+    border-radius: 50%;
+    background-color: #63522e;
+}
+
+/*fixnavbar-end*/
+
+.navmenulogo {
+    height: 50px;
+    width: 60px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    background: #307ec7;
+}
+
+.mo_mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background-color: rgba(0, 0, 0, 0.4); */
+    z-index: 1010;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mo_mask .textpanel {
+    width: 200px;
+    height: 200px;
+    background-color: rgba(0, 0, 0, 0.53);
+    color: #fff;
+    border: solid 2px #757575;
+    border-radius: 4px;
+    box-shadow: 3px 7px 90px -6px #5f5f5f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+}
+
+.pwdlevel {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pwdlevel li {
+    width: 30px;
+    background-color: #c1c1c1;
+    height: 10px;
+    display: inline-block;
+    margin-right: 10px;
+    border-radius: 4px;
+}
+
+.pwdlevel1 .pwdlvitem {
+    background-color: #d83131;
+}
+
+.pwdlevel2 .pwdlvitem {
+    background-color: #d88e31;
+}
+
+.pwdlevel3 .pwdlvitem {
+    background-color: #317bd8;
+}
+
+.pwdlevel4 .pwdlvitem {
+    background-color: #31aad8;
+}
+
+.pwdlevel5 .pwdlvitem {
+    background-color: #1ab927;
+}
+
+.top-nav .user-block .user-panel {
+    top: 48px;
+}
+
+.yhtable {
+    display: none;
+}
+
+.yhtable.active {
+    display: block;
+}
+
+.form-control {
+    padding: 4px 10px;
+    height: 30px;
+    font-size: 12px !important;
+}
+
+.btn {
+    padding: 4px 8px;
+    font-size: 13px !important;
+}
+

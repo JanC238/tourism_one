@@ -1,0 +1,82 @@
+<style>
+.leftlitop{border-top: 1px solid #E4E4E4}
+.leftlibottom{border-bottom: 1px solid #E4E4E4}
+.leftlileft{border-left:1px #E4E4E4 solid; height:42px; width:100%;}
+</style>
+<script src="__PUBLIC__/uploadify/jQuery.js" type="text/javascript"></script>
+<script>
+$(document).ready(function(){
+	$(".openable").hover(function(){
+		var id=$(this).attr("data-for");
+		
+		var img=$("#img"+id).attr("data-for");
+		$("#img"+id).attr("src",img);
+	},function(){
+		var id=$(this).attr("data-for");
+			
+		if($(this).hasClass('open')){
+			var img=$("#img"+id).attr("data-for");
+			$("#img"+id).attr("src",img);
+		}else{
+			var img=$("#img"+id).attr("data-fod");
+			$("#img"+id).attr("src",img);
+		}
+		
+	});
+	$('.sidebar-menu .openable > a').on('click',function(){
+		console.log('123')
+		setTimeout(function(){
+			$('.accordion>li').each(function(v,element){
+			if($(element).hasClass('open')||$(element).hasClass('active')){
+				console.log(element)
+				var imgelement = $(element).find('.menu-icon img')
+				var img = imgelement.attr("data-for");
+				imgelement.attr('src',img)
+			}else{
+				var imgelement = $(element).find('.menu-icon img')
+				var img = imgelement.attr("data-fod");
+				imgelement.attr('src',img)
+				
+			}
+		})
+		},200)
+		
+	})
+});
+</script>
+<aside class="sidebar-menu fixed">
+	<div class="sidebar-inner scrollable-sidebar">
+		<div class="main-menu">
+			<ul class="accordion">
+			<volist name="leftMenus" id="leftMenu" key="k">
+				<li data-for="{$k}" <if condition="$menuPid eq $leftMenu['id']">class="openable bg-palette{$k} active"<else/>class=" openable bg-palette{$k}"</if>>
+					<a href="#">
+						<span class="menu-content block">
+							<span class="menu-icon">
+								<if condition="$menuPid eq $leftMenu['id']">
+									<img id="img{$k}" src="__PUBLIC__/admin/images/biao/icon-{$k}s.png"  data-fod='__PUBLIC__/admin/images/biao/icon-{$k}s.png' data-for="__PUBLIC__/admin/images/biao/icon-{$k}s.png"/>
+								<else/>
+									<img id="img{$k}" src="__PUBLIC__/admin/images/biao/icon-{$k}.png"  data-fod='__PUBLIC__/admin/images/biao/icon-{$k}.png' data-for="__PUBLIC__/admin/images/biao/icon-{$k}s.png"/>
+								</if>
+							</span>
+							<span class="text m-left-sm">{$leftMenu.name}</span>
+							<span class="submenu-icon"></span>
+						</span>
+					</a>
+					<if condition="$leftMenu['_child'] neq ''">
+						<ul class="submenu" <if condition="$menuPid eq $leftMenu['id']">style="display:block"</if>>
+							<volist name="leftMenu['_child']" id="lc" key="d">
+								<li style="padding-left:48px; background:#FFF; height:42px; border:0px;">
+									<div class="leftlileft leftlibottom leftlitop">
+										<a href="__APP__/{$lc.url}" <if condition="$menuId eq $lc['id']">style="background-color:#368EE0; color:#FFF"</if>><span class="submenu-label">{$lc.name}</span></a>
+									</div>
+								</li>
+							</volist>
+						</ul>
+					</if>
+				</li>
+			</volist>
+			</ul>
+		</div>	
+	</div><!-- sidebar-inner -->
+</aside>

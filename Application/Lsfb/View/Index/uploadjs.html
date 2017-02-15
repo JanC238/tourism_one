@@ -1,0 +1,63 @@
+<script src="__PUBLIC__/admin/js/jquery.min.1.8.1.js"></script>
+<script>
+    $(document).ready(function () {
+        var ght=$(window).height();
+        $(".setd").css("height",ght+"px");
+        //显示
+        $(".clicks").click(function () {
+            $(".setd").css("display","block");
+        });
+        //切换
+        $(".disp").click(function(){
+            $('.disp').removeClass('atest-center-block');
+            $(this).addClass('atest-center-block');
+            $('.dispd').css('display','none');
+            if($(this).attr('data-for')==1){
+                $(".dispd1").css('display','block');
+            }else{
+                $(".dispd2").css('display','block');
+            }
+        });
+        //关闭
+        $(".close").click(function(){
+            $('.setd').css("display",'none');
+        });
+        $(".files").change(function(){
+            $('.files1').val($(this).val());
+        });
+        //本地图片上传
+        $(".tj2").click(function(){
+            if($('input[name="img"]')[0].files[0]!=undefined){
+                $(".loading").css('display','block');
+                var formData = new FormData();
+                formData.append('file',$('input[name="img"]')[0].files[0]);
+                $.ajax({
+                    "type":"post",
+                    "url":"__APP__/Upload/imgupload",
+                    "cache": false,
+                    "data":formData,
+                    "processData": false,
+                    "contentType": false,
+                    success:function(data){
+                        $(".loading").css('display','none');
+                        $('.setd').css("display",'none');
+                        $(".imgd").val(data['img']);
+                        $("#imgd").attr('src','__PUBLIC__/images/'+data['img']);
+                        $(".imgd2").val(1);
+                    }
+                });
+            }else{
+                $(".loading").css('display','none');
+                $('.setd').css("display",'none');
+            }
+        });
+        //网络图片上传
+        $(".tj1").click(function(){
+            var img3=$(".img3").val();
+            $('.setd').css("display",'none');
+            $(".imgd").val(img3);
+            $("#imgd").attr('src',img3);
+            $(".imgd2").val(2);
+        });
+    });
+</script>

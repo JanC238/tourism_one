@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <include file="Index:head"/>
+    <link href="__PUBLIC__/admin/css/base.css" rel="stylesheet">
+    <style>
+        .m-top-md {
+            margin-top: 10px;
+            font: 12px/1.5 Microsoft YaHei, Helvitica, Verdana, Arial, san-serif
+        }
+
+        .m-top-mdd, .btn.btn-info {
+            margin-top: 10px;
+            font: 14px/1.5 Microsoft YaHei, Helvitica, Verdana, Arial, san-serif
+        }
+    </style>
+</head>
+<body class="overflow-hidden">
+<div class="wrapper preload">
+    <include file="Index:top"/>
+    <include file="Index:left"/>
+    <div class="main-container">
+        <div class="padding-md">
+            <div class="row">
+                <div class="pageheader" style="padding:0px 10px 10px 10px; border-bottom:0px; background:#FFF">
+                    <div style="border-bottom:1px #D8DBDB solid; padding:5px;font: 12px/1.5 Microsoft YaHei,Helvitica,Verdana,Arial,san-serif;">
+                        <h3 style="margin:0;">角色添加</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row m-top-md">
+                <div class="col-lg-12 col-sm-6">
+                    <form class="Huiform" id="loginform" action="" method="post">
+                        <table width="100%" class="tabled m-top-md" border='0'>
+                            <tbody>
+                            <tr>
+                                <td class="col-sm-1 col-xs-3"><font style="color:red">*</font>角色名称：</td>
+                                <td><input name="name" type="text" class="form-control width200"
+                                           value="{$row.name}" readonly="sreadonly"></td>
+                            </tr>
+                            <tr>
+                                <td>　　全选：</td>
+                                <td>
+                                    <div class="custom-checkbox">
+                                        <input type="checkbox"
+                                               id="checkAll"
+                                               >
+                                        <label for="checkAll" title="全选"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-sm-1 col-xs-3"><font style="color:red">*</font>权限：</td>
+                                <td>
+                                    <table style="width: 50%;" class="table table-bordered table-hover">
+                                        <tbody>
+                                        <volist name="list" id="first">
+                                            <eq name="first['tid']" value="0">
+                                                <tr class="text-c">
+                                                    <td>{$first.name}</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                                <volist name="list" id="second">
+                                                    <if condition="$second.tid == $first.id && $second.pid == 0">
+                                                        <tr class="text-c">
+                                                            <td>|------{$second.name}</td>
+                                                            <td>{$second.url}</td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <volist name="list" id="third">
+                                                            <eq name="third['pid']" value="$second['id']">
+                                                                <tr class="text-c active">
+                                                                    <td>|-------------{$third.name}</td>
+                                                                    <td>{$third.url}</td>
+                                                                    <td>
+                                                                        <div class="custom-checkbox">
+                                                                            <input type="checkbox"
+                                                                                   name="permission[]"
+                                                                                   id="checkbox{$third.id}"
+                                                                                   class="third"
+                                                                                   value="{$third.id}"
+                                                                            <volist name="rolePermissions"
+                                                                                    id="rolePermission">
+                                                                                <if condition="$rolePermission['leftid'] eq $third['id']">
+                                                                                    checked='checked'
+                                                                                </if>
+                                                                            </volist>
+                                                                            levelid="{$third.id}">
+                                                                            <label for="checkbox{$third.id}"
+                                                                                   title="当前子类全选"></label>
+                                                                        </div>
+                                                                        <!--<div class="inline-block vertical-top">子类全选</div>-->
+                                                                    </td>
+
+                                                                </tr>
+                                                                <volist name="list" id="fourth">
+                                                                    <eq name="fourth['pid']" value="$third['id']">
+                                                                        <tr class="text-c fourth{$third.id}">
+                                                                            <td>|---------------------{$fourth.name}
+                                                                            </td>
+                                                                            <td>　　　　{$fourth.url}</td>
+                                                                            <td>
+                                                                                <div class="custom-checkbox">
+                                                                                    <input type="checkbox"
+                                                                                           name="permission[]"
+                                                                                           id="checkbox{$fourth.id}"
+                                                                                           class="third"
+                                                                                           value="{$fourth.id}"
+                                                                                    <volist name="rolePermissions"
+                                                                                            id="rolePermission">
+                                                                                        <if condition="$rolePermission['leftid'] eq $fourth['id']">
+                                                                                            checked='checked'
+                                                                                        </if>
+                                                                                    </volist>
+                                                                                    levelid="{$fourth.id}">
+                                                                                    <label for="checkbox{$fourth.id}"></label>
+                                                                                </div>
+                                                                                <!--<div class="inline-block vertical-top">选择</div>-->
+                                                                            </td>
+
+                                                                        </tr>
+                                                                    </eq>
+                                                                </volist>
+                                                            </eq>
+                                                        </volist>
+                                                    </if>
+                                                </volist>
+                                            </eq>
+                                        </volist>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <td>
+                                    <button type="submit" class="btn btn-info" id="admin-role-save"
+                                    > 确定
+                                    </button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+
+        </div><!-- ./padding-md -->
+    </div><!-- /main-container -->
+</div><!-- /wrapper -->
+<include file="Index:foot"/>
+<script>
+    $(function () {
+        //全选
+        $('#checkAll').click(function () {
+            if(this.checked) {
+                $('input[type="checkbox"]').prop('checked', 'true');
+            }else {
+                $('input[type="checkbox"]').removeAttr('checked');
+            }
+        });
+        //子分类全选
+        $('.third').click(function () {
+            var id = $(this).attr('levelid');
+            var objCheck = $(this).parent().parent().parent().siblings('.fourth' + id);
+            console.log(objCheck.find('input[type="checkbox"]'));
+            if (this.checked) {
+                objCheck.find('input[type="checkbox"]').prop('checked', 'true');
+            } else {
+                objCheck.find('input[type="checkbox"]').removeAttr('checked');
+            }
+        });
+
+    });
+</script>
+</body>
+</html>

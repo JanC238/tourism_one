@@ -1,0 +1,73 @@
+html,body,.page {
+ width: 100%;
+ height: 100%;
+}
+.page {
+  background-color: #f0f0f0;
+  position: relative;
+  top: 0;
+  padding-top: 100px;
+}
+.page .point {
+  position: absolute;
+  width: 30%;
+  top: 0;
+  left: 10%;
+  z-index: 10;  
+}
+.page .point img{
+  width: 100%;
+}
+.page .cd {
+  width: 80%;
+  margin: auto;
+}
+
+.page .cd img {
+  width: 100%;
+  animation: routate 15s linear infinite;  
+}
+
+.cdshadow {
+  box-sizing: border-box;
+  border:solid 1px #ddd;
+  border-radius: 50%;
+  padding: 10px;
+  box-shadow: inset 0px 0px 10px 0px #888;
+}
+
+.download {
+  text-align: center;
+}
+.btn-shadow {
+  display: inline-block;
+  border:solid 1px #ddd;
+  margin-top: 80px;  
+}
+.btn-shadow button {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  padding: 20px 60px;
+  border-radius: 4px;
+}
+.btn-shadow button .iconfont {
+  font-size: 21px;
+  margin-right: 10px;
+}
+.btn-shadow {
+  box-shadow: inset 0px 0px 10px 0px #888;
+  box-sizing: border-box;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+@keyframes routate {
+  from {
+    transform: rotate(0deg)
+  }
+  to {
+    transform: rotate(360deg)
+  }
+}

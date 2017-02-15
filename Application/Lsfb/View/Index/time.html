@@ -1,0 +1,13 @@
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/admin/time/jquery.datetimepicker.css"/>
+<script src="__PUBLIC__/admin/time/jquery.datetimepicker.js"></script>
+<script>
+    $('.times').datetimepicker({
+        onGenerate:function( ct ){
+            $(this).find('.xdsoft_date')
+                    .toggleClass('xdsoft_disabled');
+        },
+        minDate:'-1970/01/2',
+        maxDate:'+1970/01/2',
+        timepicker:false
+    });
+</script>

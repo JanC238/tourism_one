@@ -1,0 +1,99 @@
+<style>
+    .setd{position: absolute; width: 100%; background: rgba(255,255,255,0.5); display: none; z-index: 99;  text-align: center;}
+    .atest{width:500px; border: 1px #A1A1A1 solid; height:250px; background: #FFF; margin: 0 auto;  margin-top: 200px;
+        -webkit-box-shadow:0 0 10px #A1A1A1;
+        -moz-box-shadow:0 0 10px #A1A1A1;
+        box-shadow:0 0 10px #A1A1A1;
+    }
+    .atest-top{width: 100%; height:25px; margin: 5px 0; padding: 0 8px 5px 8px;  border-bottom: 1px #A1A1A1 solid; color: #666;}
+    .atest-center{margin-top: 50px; border-bottom: 1px #999 solid; margin: 50px 20px 0 20px}
+    .atest-center-1{width: 80px; float: left; height:30px; line-height: 30px; margin-bottom:-1px; font-size: 14px; border: 1px #999 solid; cursor: pointer}
+    .atest-center-2{width: 80px; float: left; height:30px; line-height: 30px; margin-left:5px; margin-bottom:-1px; font-size: 14px; border: 1px #999 solid; cursor: pointer;}
+    .atest-center-block{border-bottom: 1px #FFF solid;}
+    .atest-bottom{margin: 30px 20px 0px 20px;}
+    .loading{
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        margin-top: 250px;
+        z-index: 100;
+    }
+    .loading .loadcircle{
+        width: 100px;
+        height: 100px;
+        /* background-color: #000; */
+        z-index: 1000;
+        margin: 0 auto;
+        border-radius: 50%;
+        border: solid 5px #ddd;
+        /* border-bottom-color: #C5C5C5; */
+        border-right-color: #C5C5C5;
+        animation: rotate360 1s linear infinite;
+    }
+    @keyframes rotate360 {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+<div class="loading" style="display: none">
+    <div class="loadcircle"></div>
+</div>
+<div class="setd">
+    <div class="atest">
+        <div class='atest-top'>
+            <p style="float: left;">选择图片</p>
+            <p class='close' style="float: right; cursor: pointer; margin-top:-3px;"><img src="__PUBLIC__/admin/images/guanbi.png" /></p>
+            <div style="clear: both"></div>
+        </div>
+        <div class="atest-center">
+            <div class="atest-center-1 disp" data-for="1">网络图片</div>
+            <div class="atest-center-2 disp atest-center-block" data-for="2">本地上传</div>
+            <div style="clear: both"></div>
+        </div>
+        <div class="atest-bottom">
+            <!--网上上传-->
+            <div style="width: 100%; display: none;" class="dispd dispd1">
+                <table width="100%" border="0">
+                    <tr>
+                        <td width="100" align="left">图片地址</td>
+                        <td width="400" align="left">
+                            <input type="text" class="img3" style="width: 300px;border-radius:0px; height: 30px; padding: 0px; border:1px solid #999;">
+                        </td>
+                    </tr>
+                    <tr height="50">
+                        <td colspan="2" align="center">
+                            <a href="#" class="btn btn-info tj1">提交</a>
+                            <a name="{$vb.left_menu_id}" class="btn btn-infos btndel">取消</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <!--本地上传-->
+            <div style="width: 100%;" class="dispd dispd2">
+                <table width="100%" border="0">
+                    <tr>
+                        <td width="100" align="left">上传文件</td>
+                        <td width="400" align="left">
+                            <input class='files1' type="text" style="width: 200px; float:left; border-radius:0px; height: 30px; padding: 0px; border:1px solid #999;" disabled>
+                            <input class='files' name="img" type="file" style="float:left; width: 150px; margin-top: 7px; margin-left: 5px;"/>
+                        </td>
+                    </tr>
+                    <tr height="50">
+                        <td colspan="2" align="center">
+                            <a href="#" class="btn btn-info tj2">提交</a>
+                            <a name="{$vb.left_menu_id}" class="btn btn-infos btndel">取消</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

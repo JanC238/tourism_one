@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+.wp-article_detail_content .artdetail_title {padding:3px 0;line-height:1.7em;/*text-indent:20px;*/color:#426100;font-size: 16px;font-weight:bold;width:100%;overflow:hidden;text-align: center;}
+.wp-article_detail_content .artview_info {padding:3px 0;line-height:1.7em;text-align: center;}
+.wp-article_detail_content .artview_intro {padding:5px 0;line-height:1.7em;color:#868686;background-color:#F5F5F5;border:#E5E5E5 1px solid;margin-bottom:10px;text-indent:24px;}
+.wp-article_detail_content .artview_content {clear:both;padding-top:8px;line-height:1.7em;min-height:50px;/*text-align:justify;text-justify:inter-ideograph;*/}
+.wp-article_detail_content .artview_thumb {float:left;margin-right:10px;border:#D5E1E2 1px solid;width:95px;height:90px;text-align:center;}
+.wp-article_detail_content .artview_thumb img {vertical-align:middle;display:inline-block;}
+.wp-article_detail_content .artview_guide {float:left;margin-top:5px;}
+.artview_detail{text-indent: 0px;}
+.artview_detail table{margin:auto;}
+.wp-article_detail_content .artview_prev_next a:hover{text-decoration: none;}
+.wp-article_detail_content .artview_detail ol{list-style-type:decimal}
+.wp-article_detail_content .artview_detail ol li{list-style-type:decimal;display:list-item;}

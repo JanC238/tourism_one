@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <include file="Index:head"/>
+    <link href="__PUBLIC__/admin/css/base.css" rel="stylesheet">
+    <style>.m-top-md {
+        margin-top: 10px;
+        font: 12px/1.5 Microsoft YaHei, Helvitica, Verdana, Arial, san-serif
+    }</style>
+</head>
+<body class="overflow-hidden">
+<div class="wrapper preload">
+    <include file="Index:top"/>
+    <include file="Index:left"/>
+    <div class="main-container">
+        <div class="padding-md">
+            <div class="row">
+                <div class="pageheader" style="padding:0px 10px 10px 10px; border-bottom:0px; background:#FFF">
+                    <div style="border-bottom:1px #D8DBDB solid; padding:5px;font: 12px/1.5 Microsoft YaHei,Helvitica,Verdana,Arial,san-serif;">
+                        <h3 style="margin:0;">管理员管理</h3>
+                    </div>
+                    <div style="width:100%; padding:10px 0 10px 10px; margin-top:10px;">
+                        <if condition="in_array('/AdUser/del',per()) OR user()['id'] eq 1">
+                            <a href="{:U('/AdUser/add')}" class="btn btn-add"><i class="fa fa-plus"></i> 添加</a>
+                        </if>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row m-top-md">
+                <table width="98%" style="margin-left: 20px" class="tables m-top-md table-hover table-striped">
+                    <tr>
+                        <td colspan="8">管理员列表</td>
+                    </tr>
+                    <tr class="text-c">
+                        <td>序号</td>
+                        <td>登录名</td>
+                        <td>姓名</td>
+                        <td>联系电话</td>
+                        <td>联系邮箱</td>
+                        <td>备注</td>
+                        <td>更新时间</td>
+                        <td>操作</td>
+                    </tr>
+                    <volist name="rows" id="vb" key="k">
+                        <tr class="text-c">
+                            <td>{$k}</td>
+                            <td>
+                                <volist name="accounts" id="account" >
+                                    <eq name="account.userid" value="$vb['id']">
+                                        {$account.account}
+                                    </eq>
+                                </volist>
+                            </td>
+                            <td>{$vb.name}</td>
+                            <td>
+                                {$vb.tel}
+                            </td>
+                            <td>
+                                {$vb.email}
+                            </td>
+                            <td>
+                                {$vb.bewrite}
+                            </td>
+                            <td>
+                                {$vb.reg_time|date='Y-m-d H:i:s',###}
+                            </td>
+                            <td>
+                                <if condition="in_array('AdUser/edit',per()) OR user()['id'] eq 1">
+                                    <a title="编辑/绑定" href="{:U('/AdUser/edit',array('uid'=>$vb['id']))}"
+                                       class="btn btn-info"
+                                    ><i class="icon-edit"></i>编辑/绑定</a>
+                                </if>
+                                <if condition="in_array('AdUser/edit',per()) OR user()['id'] eq 1">
+                                    <a title="删除" href="javascript:;" name="{$vb.id}" class="btn btn-infos del"
+                                    ><i class="icon-trash "></i>删除</a></td>
+                                </if>
+                        </tr>
+                    </volist>
+                </table>
+            </div>
+        </div>
+
+    </div><!-- ./padding-md -->
+</div><!-- /main-container -->
+</div><!-- /wrapper -->
+<include file="Index:foot"/>
+<script>
+    //删除
+    $(".del").on("click", function () {
+        if (confirm("确定要删除账号吗? 可能有绑定的账号哦！")) {
+            $.maskajax('post', "{:U('AdUser/del')}", {"id": $(this).attr("name")}, function (data) {
+                if (data === 0) {
+                    alert('删除失败');
+                } else {
+                    location.reload();
+                }
+            }, '账号删除中');
+        }
+    });
+//    //设置
+//    $(".btnset").on('click', function () {
+//        $.maskajax('post', "{:U('AdUser/change')}", {"id": $(this).attr("name")}, function (data) {
+//            if (data === 0) {
+//                alert('更改失败');
+//            } else {
+//                location.reload();
+//            }
+//        }, '账号变更中');
+//    });
+</script>
+</body>
+</html>
