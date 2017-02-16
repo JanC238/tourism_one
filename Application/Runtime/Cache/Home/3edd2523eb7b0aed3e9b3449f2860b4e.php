@@ -2365,7 +2365,7 @@
                         <div class="img_over"
                              style='overflow: hidden; border-color: transparent; border-width: 0px; width: 130px; height: 160px;'>
                             <div class="imgloading" style="z-index:100;"></div>
-                            <a class="media_link" href="index.html" target="_self">
+                            <a class="media_link" href="<?php echo U('/Index/index');?>" target="_self">
                                 <img onerror="set_thumb_layer6D03CB0F15E3FC96B3ABE448439B645A(this);"
                                      onload="set_thumb_layer6D03CB0F15E3FC96B3ABE448439B645A(this);"
                                      id="wp-media-image_layer6D03CB0F15E3FC96B3ABE448439B645A"
@@ -2415,13 +2415,13 @@
                              sethomeurl="http://travel-74.view.sitestar.cn/page72">
                             <ul id="nav_layer8CFA33E5282796A5E7BAFCD6B4D32E35" class="navigation">
                                 <li style="z-index:2;" class="wp_subtop" pid="72"><a class="  "
-                                                                                     href="index.html">网站首页</a></li>
+                                                                                     href="<?php echo U('/Index/index');?>">网站首页</a></li>
                                 <li style="z-index:2;" class="wp_subtop" pid="86"><a class="  "
-                                                                                     href="about.html">关于我们</a></li>
+                                                                                     href="<?php echo U('/About/index');?>">关于我们</a></li>
                                 <li style="z-index:2;" class="wp_subtop" pid="87"><a class="  "
-                                                                                     href="route.html">出行路线</a></li>
+                                                                                     href="<?php echo U('/Route/index');?>">出行路线</a></li>
                                 <li style="z-index:2;" class="wp_subtop" pid="88"><a class="  "
-                                                                                     href="diary.html">旅行日记</a></li>
+                                                                                     href="<?php echo U('/Diary/index');?>">旅行日记</a></li>
                             </ul>
                         </div>
                         <script type="text/javascript">
@@ -2658,13 +2658,13 @@
                              sethomeurl="http://travel-74.view.sitestar.cn/page72">
                             <ul id="nav_layer29050EE3190E1CF91BEF1F5F57DE2EB3" class="navigation">
                                 <li style="z-index:2;" class="wp_subtop" pid="91"><a class="  "
-                                                                                     href="hotel.html">度假酒店</a></li>
-                                <li style="z-index:2;" class="wp_subtop" pid="92"><a class="  " href="guarantee.html">出行保障</a>
+                                                                                     href="<?php echo U('/Hotel/index');?>">度假酒店</a></li>
+                                <li style="z-index:2;" class="wp_subtop" pid="92"><a class="  " href="<?php echo U('/Guarantee/index');?>">出行保障</a>
                                 </li>
                                 <li style="z-index:2;" class="wp_subtop" pid="89"><a class="  "
-                                                                                     href="booking.html">在线预约</a></li>
+                                                                                     href="<?php echo U('/Booking/index');?>">在线预约</a></li>
                                 <li style="z-index:2;" class="wp_subtop" pid="90"><a class="  "
-                                                                                     href="contact.html">联系我们</a></li>
+                                                                                     href="<?php echo U('/Contact/index');?>">联系我们</a></li>
                             </ul>
                         </div>
                         <script type="text/javascript">
@@ -3263,7 +3263,7 @@
                 <div class="img_over"
                      style='overflow: hidden; border-color: transparent; border-width: 0px; width: 48px; height: 46px;'>
                     <div class="imgloading" style="z-index:100;"></div>
-                    <a class="media_link" href="about.html" target="_self">
+                    <a class="media_link" href="<?php echo U('/About/index');?>" target="_self">
                         <img onerror="set_thumb_layer9C6AFBC204B3EB94F0B7A8AC6FE79710(this);"
                              onload="set_thumb_layer9C6AFBC204B3EB94F0B7A8AC6FE79710(this);"
                              id="wp-media-image_layer9C6AFBC204B3EB94F0B7A8AC6FE79710"
@@ -3298,11 +3298,11 @@
             <div class="wp-breadcrumb_content"
                  style="width: 1200px; height: 16px; border-width: 0px; border-style: solid; padding: 0px;">
                 <div class='breadcrumb_plugin'>
-                    <span style=" /*display:block; float:left;*/" class="breadcrumbtext"><a href="index.html"
+                    <span style=" /*display:block; float:left;*/" class="breadcrumbtext"><a href="<?php echo U('/Index/index');?>"
                                                                                             style="line-height:100%;line-height:100%;line-height:100%;line-height:100%;line-height:100%;line-height:100%;line-height:100%;line-height:100%;line-height:100%;line-height: 100%; font-family: 'Microsoft YaHei';">网站首页</a></span>
                     <span style=" /*display:block;*/line-height:100%; /*float:left;*/margin-left:5px;margin-right:5px;color:rgb(120, 120, 120);font-size:12px;"
                           class="breadcrumbfuhao">≡</span>
-                    <span style="/*display:block; float:left;*/" class="breadcrumbtext"><a href="booking.html"
+                    <span style="/*display:block; float:left;*/" class="breadcrumbtext"><a href="<?php echo U('/Booking/index');?>"
                                                                                            style="line-height:100%;line-height:100%;line-height:100%;line-height:100%;line-height:100%;line-height:100%;line-height:100%;line-height:100%;line-height:100%;line-height: 100%; font-family: 'Microsoft YaHei';">在线预约</a></span>
                 </div>
             </div>
@@ -3552,7 +3552,7 @@
             <div class="wp-title_content"
                  style="word-wrap: break-word; padding: 0px; border-color: transparent; border-width: 0px; height: 61px; width: 587px; display: block;">
                 <div style="text-align: center;"><span
-                        style="font-size: 38px; font-family: 方正舒体; color: rgb(128, 196, 53);">期待和你来一场说走就走的旅行​</span>
+                        style="font-size: 38px; font-family: 方正舒体; color: rgb(128, 196, 53);"><?php echo ($bookingText["title"]); ?></span>
                 </div>
             </div>
         </div>
@@ -3565,7 +3565,7 @@
             <div class="wp-title_content"
                  style="word-wrap: break-word; padding: 0px; border-color: transparent; border-width: 0px; height: 82px; width: 412px; display: block;">
                 <div style="text-align: center;"><span
-                        style="font-size: 14px; font-family: 微软雅黑; line-height: 180%; color: rgb(67, 67, 67);">您提出要求，我们为您安排一场梦幻之游— —“走遍世界，也不过是为了找到一条走回内心的路。”​</span>
+                        style="font-size: 14px; font-family: 微软雅黑; line-height: 180%; color: rgb(67, 67, 67);"><?php echo ($bookingText["content"]); ?>​</span>
                 </div>
             </div>
         </div>
@@ -4144,22 +4144,22 @@
                                  hover="0" hover_scr="0" umenu="0" dmenu="0"
                                  sethomeurl="http://travel-74.view.sitestar.cn/page72">
                                 <ul id="nav_layerC6E0B76F92A07864CA2066BD2BEA0D94" class="navigation">
-                                    <li style="z-index:2;" class="wp_subtop" pid="72"><a class="  " href="index.html">网站首页</a>
+                                    <li style="z-index:2;" class="wp_subtop" pid="72"><a class="  " href="<?php echo U('/Index/index');?>">网站首页</a>
                                     </li>
-                                    <li style="z-index:2;" class="wp_subtop" pid="86"><a class="  " href="about.html">关于我们</a>
+                                    <li style="z-index:2;" class="wp_subtop" pid="86"><a class="  " href="<?php echo U('/About/index');?>">关于我们</a>
                                     </li>
-                                    <li style="z-index:2;" class="wp_subtop" pid="87"><a class="  " href="route.html">出行路线</a>
+                                    <li style="z-index:2;" class="wp_subtop" pid="87"><a class="  " href="<?php echo U('/Route/index');?>">出行路线</a>
                                     </li>
-                                    <li style="z-index:2;" class="wp_subtop" pid="88"><a class="  " href="diary.html">旅行日记</a>
+                                    <li style="z-index:2;" class="wp_subtop" pid="88"><a class="  " href="<?php echo U('/Diary/index');?>">旅行日记</a>
                                     </li>
-                                    <li style="z-index:2;" class="wp_subtop" pid="91"><a class="  " href="hotel.html">度假酒店</a>
+                                    <li style="z-index:2;" class="wp_subtop" pid="91"><a class="  " href="<?php echo U('/Hotel/index');?>">度假酒店</a>
                                     </li>
                                     <li style="z-index:2;" class="wp_subtop" pid="92"><a class="  "
-                                                                                         href="guarantee.html">出行保障</a>
+                                                                                         href="<?php echo U('/Guarantee/index');?>">出行保障</a>
                                     </li>
-                                    <li style="z-index:2;" class="wp_subtop" pid="89"><a class="  " href="booking.html">在线预约</a>
+                                    <li style="z-index:2;" class="wp_subtop" pid="89"><a class="  " href="<?php echo U('/Booking/index');?>">在线预约</a>
                                     </li>
-                                    <li style="z-index:2;" class="wp_subtop" pid="90"><a class="  " href="contact.html">联系我们</a>
+                                    <li style="z-index:2;" class="wp_subtop" pid="90"><a class="  " href="<?php echo U('/Contact/index');?>">联系我们</a>
                                     </li>
                                 </ul>
                             </div>

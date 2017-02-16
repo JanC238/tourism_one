@@ -3539,7 +3539,7 @@
                                                                                             style="line-height:100%;line-height:100%;line-height:100%;line-height:100%;line-height:100%;line-height: 100%; font-family: 'Microsoft YaHei';">网站首页</a></span>
                     <span style=" /*display:block;*/line-height:100%; /*float:left;*/margin-left:5px;margin-right:5px;color:rgb(120, 120, 120);font-size:12px;"
                           class="breadcrumbfuhao">≡</span>
-                    <span style="/*display:block; float:left;*/" class="breadcrumbtext"><a href="{:U('/Route/index')}"
+                    <span style="/*display:block; float:left;*/" class="breadcrumbtext"><a href="{:U('/Diary/index')}"
                                                                                            style="line-height:100%;line-height:100%;line-height:100%;line-height:100%;line-height:100%;line-height: 100%; font-family: 'Microsoft YaHei';">旅行日记</a></span>
                 </div>
             </div>
@@ -4022,7 +4022,7 @@
                         <volist name="rows" id="row">
                             <li style="margin-bottom:10px;">
                                 <p class="title">
-                                    <a class='articleid' articleid="{$row.id}" href="">{$row.name}</a></p>
+                                    <a class='articleid' articleid="{$row.id}" href="{:U('/Diary/details',['id'=>$row['id']])}">{$row.name}</a></p>
                                 <p class="time"><span class="wp-new-ar-pro-time">{$row.time|date='Y-m-d H:i:s',###}</span></p>
                                 <p class="abstract">{$row.intro}</p>
                                 <p class="wpart-border-line"></p>

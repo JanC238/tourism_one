@@ -48,7 +48,10 @@
 }
 </style>
 	    <link href="/lsfb/tourism_one/Public/admin/css/base.css" rel="stylesheet">
-	    <style>.m-top-md{margin-top:10px; font:12px/1.5 Microsoft YaHei,Helvitica,Verdana,Arial,san-serif}</style>
+	    <style>
+	    .m-top-md{margin-top:10px; font:12px/1.5 Microsoft YaHei,Helvitica,Verdana,Arial,san-serif}
+	    .m-top-mdd,.btn.btn-info {margin-top: 10px; font: 14px/1.5 Microsoft YaHei, Helvitica, Verdana, Arial, san-serif}
+	    </style>
   	</head>
   	<body class="overflow-hidden">
 		<div class="wrapper preload">
@@ -184,55 +187,41 @@ $(document).ready(function(){
 					<div class="row">
 						<div class="pageheader" style="padding:0px 10px 10px 10px; border-bottom:0px; background:#FFF">
 							<div style="border-bottom:1px #D8DBDB solid; padding:5px;font: 12px/1.5 Microsoft YaHei,Helvitica,Verdana,Arial,san-serif;">
-						    	<h3 style="margin:0;">路线管理</h3>
+								<?php if(ACTION_NAME == 'edit'): ?><h3 style="margin:0;">预定内容修改</h3>
+									<?php else: ?>
+									<h3 style="margin:0;">预定内容添加</h3><?php endif; ?>
 						    </div>
-						    <div style="width:100%; padding:10px 0 10px 10px; margin-top:10px;">
-								<?php if(in_array('Route/add',per()) OR user()['id'] == 1): ?><a href="<?php echo U('/Route/add');?>" class="btn btn-add"><i class="fa fa-plus"></i> 添加</a><?php endif; ?>
-    						</div>
 						</div>
 					</div>
 
 					<div class="row m-top-md">
 						<div class="col-lg-12 col-sm-6">
-							<table width="100%" class="tables m-top-md table-hover table-striped">
-								<tr >
-									<td>序号</td>
-									<td>分类</td>
-									<td>名称</td>
-									<td>市场价</td>
-									<td>价格</td>
-									<!--<td>简介</td>-->
-									<td>图片</td>
-									<!--<td>状态</td>-->
-									<!--<td>时间</td>-->
-									<td>操作</td>
-								</tr>
-								<?php if(is_array($rows)): $k = 0; $__LIST__ = $rows;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$row): $mod = ($k % 2 );++$k;?><tr class="text-c">
-										<td><?php echo ($k); ?></td>
+							<form class="Huiform" id="loginform" action="" method="post">
+								<input type="hidden" name="id" value="<?php echo ($row["id"]); ?>"/>
+								<table width="100%" class="tabled table-bordered m-top-md" border='0'>
+									<tbody>
+									<tr>
+										<td>标题</td>
 										<td>
-											<?php if(is_array($clas)): $i = 0; $__LIST__ = $clas;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$cla): $mod = ($i % 2 );++$i; if(($cla["id"]) == $row['pid']): echo ($cla["name"]); endif; endforeach; endif; else: echo "" ;endif; ?>
+											<input type="text" name="title" value="<?php echo ($row["title"]); ?>" class="form-control width200" placeholder="标题">
 										</td>
-										<td><?php echo ($row["name"]); ?></td>
-										<td><?php echo ($row["market_price"]); ?></td>
-										<td><?php echo ($row["price"]); ?></td>
-										<!--<td><?php echo ($row["intro"]); ?></td>-->
+									</tr>
+									<tr>
+										<td>内容</td>
 										<td>
-											<img src="/lsfb/tourism_one/Public/images/<?php echo ($row["image"]); ?>" width="100px" alt="">
+											<textarea style="width: 200px" style="width: 200px" name="content" ><?php echo ($row["content"]); ?></textarea>
 										</td>
-										<!--wp-new-article-style_lis-->
-										<!--<td>-->
-											<!--<?php echo (date('Y-m-d H:i:s',$row["time"])); ?>-->
-										<!--</td>-->
-										<td class="f-14">
-											<?php if(in_array('Route/edit',per()) OR user()['id'] == 1): ?><a href="<?php echo U('/Route/edit',array('aid'=>$row['id']));?>" class="btn btn-info">编辑</a><?php endif; ?>
-											<?php if(in_array('Route/del',per()) OR user()['id'] == 1): ?><a href="javascript:;" name="<?php echo ($row["id"]); ?>" class="btn btn-infos btndel">删除</a><?php endif; ?>
+									</tr>
+									</tr>
+									<tr>
+										<th></th>
+										<td>
+											<button type="submit" class="btn btn-info radius" id="admin-role-save" name="admin-role-save"><i class="icon-ok"></i> 确定</button>
 										</td>
-									</tr><?php endforeach; endif; else: echo "" ;endif; ?>
-								<tr>
-									<td colspan="999"><?php echo ($pageHtml); ?></td>
-								</tr>
-								</tbody>
-							</table>
+									</tr>
+									</tbody>
+								</table>
+							</form>
 						</div>
 					</div>
 
@@ -337,33 +326,5 @@ $(document).ready(function(){
         });
     });
 </script>
-	<script>
-	//删除
-	$(".btndel").on("click",function(){
-		if(confirm("确定要删除账号吗")){
-			$.maskajax('post',"<?php echo U('/Route/del');?>",{"id":$(this).attr("name")},function(data){
-				if(data == 0) {
-					alert('删除出错了');
-				}else {
-                    location.reload();
-				}
-			},'账号删除中');
-		}
-	});
-	</script>
-		<script>
-            $('.status').click(function () {
-                var id = $(this).attr('name');
-                $.post('<?php echo U("/Route/changeStatus");?>', {id: id}, function (res) {
-                    if(res == 1) {
-                        alert('失败');
-                    }else if(res == 2) {
-                        alert('最多显示四个');
-                    }else if(res == 3) {
-                        location.reload();
-                    }
-                });
-            });
-		</script>
   	</body>
 </html>

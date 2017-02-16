@@ -32,8 +32,10 @@
 									<td>序号</td>
 									<td>分类</td>
 									<td>名称</td>
+									<td>市场价</td>
+									<td>价格</td>
 									<!--<td>简介</td>-->
-									<!--<td>图片</td>-->
+									<td>图片</td>
 									<!--<td>状态</td>-->
 									<!--<td>时间</td>-->
 									<td>操作</td>
@@ -47,10 +49,12 @@
 											</volist>
 										</td>
 										<td>{$row.name}</td>
+										<td>{$row.market_price}</td>
+										<td>{$row.price}</td>
 										<!--<td>{$row.intro}</td>-->
-										<!--<td>-->
-											<!--<img src="__PUBLIC__/images/{$row.image}" width="100px" alt="">-->
-										<!--</td>-->
+										<td>
+											<img src="__PUBLIC__/images/{$row.image}" width="100px" alt="">
+										</td>
 										<!--wp-new-article-style_lis-->
 										<!--<td>-->
 											<!--{$row.time|date='Y-m-d H:i:s',###}-->

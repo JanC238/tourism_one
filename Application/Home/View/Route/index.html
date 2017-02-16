@@ -2475,7 +2475,7 @@
                         <div class="img_over"
                              style='overflow: hidden; border-color: transparent; border-width: 0px; width: 130px; height: 160px;'>
                             <div class="imgloading" style="z-index:100;"></div>
-                            <a class="media_link" href="index.html" target="_self">
+                            <a class="media_link" href="{:U('/Index/index')}" target="_self">
                                 <img onerror="set_thumb_layer6D03CB0F15E3FC96B3ABE448439B645A(this);"
                                      onload="set_thumb_layer6D03CB0F15E3FC96B3ABE448439B645A(this);"
                                      id="wp-media-image_layer6D03CB0F15E3FC96B3ABE448439B645A"
@@ -3373,7 +3373,7 @@
                 <div class="img_over"
                      style='overflow: hidden; border-color: transparent; border-width: 0px; width: 48px; height: 46px;'>
                     <div class="imgloading" style="z-index:100;"></div>
-                    <a class="media_link" href="about.html" target="_self">
+                    <a class="media_link" href="{:U('/About/index')}" target="_self">
                         <img onerror="set_thumb_layer9C6AFBC204B3EB94F0B7A8AC6FE79710(this);"
                              onload="set_thumb_layer9C6AFBC204B3EB94F0B7A8AC6FE79710(this);"
                              id="wp-media-image_layer9C6AFBC204B3EB94F0B7A8AC6FE79710"
@@ -3858,7 +3858,7 @@
                             <div class="img"
                                  style="height:210px;width:290px;text-align:center;vertical-align:middle;display:table-cell;">
                                 <div class="imgloading" style="height:208px;width:288px;"></div>
-                                <a href="">
+                                <a href="{:U('/Route/details',['id'=>$row['id']])}">
                                     <img src="__PUBLIC__/images/{$row.image}"
                                          data-original="__PUBLIC__/images/{$row.image}"
                                          class="wp-product_list-thumbnail img_lazy_load"
@@ -3868,7 +3868,7 @@
                             </div>
                             <div class="wp-new-article-style-c">
                                 <p class="title" style="font: normal 120% 'Microsoft yahei', Arial, Verdana;"><a
-                                        href="page94-product_id=34.html">{$row.name}</a></p>
+                                        href="{:U('/Route/details',['id'=>$row['id']])}">{$row.name}</a></p>
                             </div>
                         </li>
                         </volist>
@@ -4157,22 +4157,22 @@
                                  hover="0" hover_scr="0" umenu="0" dmenu="0"
                                  sethomeurl="http://travel-74.view.sitestar.cn/page72">
                                 <ul id="nav_layerC6E0B76F92A07864CA2066BD2BEA0D94" class="navigation">
-                                    <li style="z-index:2;" class="wp_subtop" pid="72"><a class="  " href="index.html">网站首页</a>
+                                    <li style="z-index:2;" class="wp_subtop" pid="72"><a class="  " href="{:U('/Index/index')}">网站首页</a>
                                     </li>
-                                    <li style="z-index:2;" class="wp_subtop" pid="86"><a class="  " href="about.html">关于我们</a>
+                                    <li style="z-index:2;" class="wp_subtop" pid="86"><a class="  " href="{:U('/About/index')}">关于我们</a>
                                     </li>
-                                    <li style="z-index:2;" class="wp_subtop" pid="87"><a class="  " href="route.html">出行路线</a>
+                                    <li style="z-index:2;" class="wp_subtop" pid="87"><a class="  " href="{:U('/Route/index')}">出行路线</a>
                                     </li>
-                                    <li style="z-index:2;" class="wp_subtop" pid="88"><a class="  " href="diary.html">旅行日记</a>
+                                    <li style="z-index:2;" class="wp_subtop" pid="88"><a class="  " href="{:U('/Diary/index')}">旅行日记</a>
                                     </li>
-                                    <li style="z-index:2;" class="wp_subtop" pid="91"><a class="  " href="hotel.html">度假酒店</a>
+                                    <li style="z-index:2;" class="wp_subtop" pid="91"><a class="  " href="{:U('/Hotel/index')}">度假酒店</a>
                                     </li>
                                     <li style="z-index:2;" class="wp_subtop" pid="92"><a class="  "
-                                                                                         href="guarantee.html">出行保障</a>
+                                                                                         href="{:U('/Guarantee/index')}">出行保障</a>
                                     </li>
-                                    <li style="z-index:2;" class="wp_subtop" pid="89"><a class="  " href="booking.html">在线预约</a>
+                                    <li style="z-index:2;" class="wp_subtop" pid="89"><a class="  " href="{:U('/Booking/index')}">在线预约</a>
                                     </li>
-                                    <li style="z-index:2;" class="wp_subtop" pid="90"><a class="  " href="contact.html">联系我们</a>
+                                    <li style="z-index:2;" class="wp_subtop" pid="90"><a class="  " href="{:U('/Contact/index')}">联系我们</a>
                                     </li>
                                 </ul>
                             </div>

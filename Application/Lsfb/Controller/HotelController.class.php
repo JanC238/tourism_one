@@ -43,7 +43,8 @@ class HotelController extends PublicController
             if ($data === false) {
                 $this->error(getError($this->_model));
             }
-            $res = $this->_model->add();
+            $data['content'] = I('post.content', '', false);
+            $res = $this->_model->add($data);
             if ($res === false) {
                 $this->error(getError($this->_model));
             }
@@ -61,6 +62,7 @@ class HotelController extends PublicController
                 $this->error(getError($this->_model));
             }
             $data['id'] = $aid;
+            $data['content'] = I('post.content', '', false);
             $res = $this->_model->save($data);
             if ($res === false) {
                 $this->error(getError($this->_model));

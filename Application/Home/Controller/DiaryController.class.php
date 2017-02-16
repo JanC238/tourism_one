@@ -27,4 +27,31 @@ class DiaryController extends PublicController
         $this->assign($data);
         $this->display();
     }
+
+    public function details($id)
+    {
+        $model = M('News');
+        $row = $model->find($id);
+        //上一个
+        $last = $model->find(($id - 1));
+        if ($last) {
+            $row['last'] = $last['name'];
+        } else {
+            $row['last'] = '没有了';
+            $row['last_status'] = 1;
+        }
+        //下一个
+        $next = $model->find(($id + 1));
+        if ($next) {
+            $row['next'] = $next['name'];
+        } else {
+            $row['next'] = '没有了';
+            $row['next_status'] = 1;
+        }
+        $this->assign('row', $row);
+        $classModel = M('NewsClass');
+        $classes = $classModel->select();
+        $this->assign('classes', $classes);
+        $this->display();
+    }
 }

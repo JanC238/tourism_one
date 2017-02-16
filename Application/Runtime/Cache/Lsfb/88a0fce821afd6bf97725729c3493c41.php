@@ -259,6 +259,18 @@ $(document).ready(function(){
 								</td>
 							</tr>
 							<tr>
+								<td>市场价</td>
+								<td>
+									<input type="text" name="market_price" class="form-control width200" value="<?php echo ($row["market_price"]); ?>">
+								</td>
+							</tr>
+							<tr>
+								<td>价格</td>
+								<td>
+									<input type="text" name="price" class="form-control width200" value="<?php echo ($row["price"]); ?>">
+								</td>
+							</tr>
+							<tr>
 								<td>详情</td>
 								<td>
 									<textarea name="content"  id="editor" style="width: 800px;height: 600px"><?php echo ($row["content"]); ?></textarea>

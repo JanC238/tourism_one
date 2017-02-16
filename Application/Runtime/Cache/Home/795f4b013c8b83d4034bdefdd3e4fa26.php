@@ -2528,7 +2528,7 @@
                                                                                      href="<?php echo U('/About/index');?>">关于我们</a></li>
                                 <li style="z-index:2;" class="wp_subtop " pid="87"><a class="  "
                                                                                      href="<?php echo U('/Route/index');?>">出行路线</a></li>
-                                <li style="z-index:2;" class="wp_subtop lihover" pid="88"><a class=" ahover "
+                                <li style="z-index:2;" class="wp_subtop" pid="88"><a class=" "
                                                                                      href="<?php echo U('/Diary/index');?>">旅行日记</a></li>
                             </ul>
                         </div>
@@ -2767,7 +2767,7 @@
                             <ul id="nav_layer29050EE3190E1CF91BEF1F5F57DE2EB3" class="navigation">
                                 <li style="z-index:2;" class="wp_subtop" pid="91"><a class="  "
                                                                                      href="<?php echo U('/Hotel/index');?>">度假酒店</a></li>
-                                <li style="z-index:2;" class="wp_subtop" pid="92"><a class="  " href="<?php echo U('/Guarantee/index');?>">出行保障</a>
+                                <li style="z-index:2;" class="wp_subtop lihover" pid=""><a class=" ahover " href="<?php echo U('/Guarantee/index');?>">出行保障</a>
                                 </li>
                                 <li style="z-index:2;" class="wp_subtop" pid="89"><a class="  "
                                                                                      href="<?php echo U('/Booking/index');?>">在线预约</a></li>
@@ -3537,8 +3537,8 @@
                                                                                             style="line-height:100%;line-height:100%;line-height:100%;line-height:100%;line-height:100%;line-height: 100%; font-family: 'Microsoft YaHei';">网站首页</a></span>
                     <span style=" /*display:block;*/line-height:100%; /*float:left;*/margin-left:5px;margin-right:5px;color:rgb(120, 120, 120);font-size:12px;"
                           class="breadcrumbfuhao">≡</span>
-                    <span style="/*display:block; float:left;*/" class="breadcrumbtext"><a href="<?php echo U('/Route/index');?>"
-                                                                                           style="line-height:100%;line-height:100%;line-height:100%;line-height:100%;line-height:100%;line-height: 100%; font-family: 'Microsoft YaHei';">旅行日记</a></span>
+                    <span style="/*display:block; float:left;*/" class="breadcrumbtext"><a href="<?php echo U('/Guarantee/index');?>"
+                                                                                           style="line-height:100%;line-height:100%;line-height:100%;line-height:100%;line-height:100%;line-height: 100%; font-family: 'Microsoft YaHei';">出行保障</a></span>
                 </div>
             </div>
         </div>
@@ -3551,10 +3551,10 @@
             <div class="wp-title_content"
                  style="word-wrap: break-word; padding: 0px; border-color: transparent; border-width: 0px; height: 24px; width: 139px; display: block;">
                 <div style="text-align: center;"><span
-                        style="color: rgb(255, 255, 255); font-family: 微软雅黑; font-size: 16px; line-height: 22.4px;">旅行日记<span
+                        style="color: rgb(255, 255, 255); font-family: 微软雅黑; font-size: 16px; line-height: 22.4px;">出行保障<span
                         style="letter-spacing: 2px;">/</span>
 					<span
-                            style="letter-spacing: 1px;">ROUTE</span>
+                            style="letter-spacing: 1px;">GUAR</span>
 						</span>
                 </div>
             </div>
@@ -3597,7 +3597,7 @@
                     <ul id="nav_layerB292B1E5D23FC117B9DDBD2E6FFC719E" class="navigation">
                         <?php if(is_array($classes)): $i = 0; $__LIST__ = $classes;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$class): $mod = ($i % 2 );++$i;?><li style="z-index:2;" class="wp_subtop"
                                 pid="<?php echo ($class["id"]); ?>"><a
-                                    class="" href="<?php echo U('/Diary/index',['pid'=>$class['id']]);?>"><?php echo ($class["name"]); ?></a>
+                                    class="" href="<?php echo U('/Guarantee/index',['pid'=>$class['id']]);?>"><?php echo ($class["name"]); ?></a>
                             </li><?php endforeach; endif; else: echo "" ;endif; ?>
                     </ul>
                     <div class="default_pid" style="display:none; width:0px; height:0px;"></div>
@@ -4017,7 +4017,7 @@
                     <ul>
                         <?php if(is_array($rows)): $i = 0; $__LIST__ = $rows;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$row): $mod = ($i % 2 );++$i;?><li style="margin-bottom:10px;">
                                 <p class="title">
-                                    <a class='articleid' articleid="<?php echo ($row["id"]); ?>" href=""><?php echo ($row["name"]); ?></a></p>
+                                    <a class='articleid' articleid="<?php echo ($row["id"]); ?>" href="<?php echo U('/GuaranteeDetails/index',['id'=>$row['id']]);?>"><?php echo ($row["name"]); ?></a></p>
                                 <p class="time"><span class="wp-new-ar-pro-time"><?php echo (date('Y-m-d H:i:s',$row["time"])); ?></span></p>
                                 <p class="abstract"><?php echo ($row["intro"]); ?></p>
                                 <p class="wpart-border-line"></p>

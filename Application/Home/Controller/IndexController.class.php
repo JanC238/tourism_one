@@ -54,6 +54,10 @@ class IndexController extends PublicController
         $newsModel = M('News');
         $news = $newsModel->order('time desc')->limit(5)->select();
         $this->assign('newses', $news);
+        //路线分类
+        $routeClassModel = M('Class');
+        $routeClasses = $routeClassModel->select();
+        $this->assign('routeClasses', $routeClasses);
         $this->display('HomeContent:index');
     }
 }

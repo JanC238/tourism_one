@@ -17,6 +17,10 @@ class BookingController extends PublicController
         $aboutUsScrollImgModel = M('AboutUsScrollImg');
         $aboutUsScrollImgs = $aboutUsScrollImgModel->select();
         $this->assign('aboutUsScrollImgs', $aboutUsScrollImgs);
+        //文字
+        $bookingTextModel = M('BookingText');
+        $bookingText = $bookingTextModel->find(1);
+        $this->assign('bookingText', $bookingText);
         $this->display();
     }
 

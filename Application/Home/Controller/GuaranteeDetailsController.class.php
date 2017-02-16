@@ -3,35 +3,17 @@
  * Created by PhpStorm.
  * User: Jan
  * Date: 2017/2/15
- * Time: 9:50
+ * Time: 16:52
  */
 
 namespace Home\Controller;
 
 
-class HotelController extends PublicController
+class GuaranteeDetailsController extends PublicController
 {
-    public function index()
+    public function index($id)
     {
-        $model = M("Hotel");
-        $classModel = M('Class');
-        $classes = $classModel->select();
-        $pid = I('get.pid');
-        if ($pid) {
-            $cond['pid'] = $pid;
-        } else {
-            $cond['pid'] = $classes[0]['id'];
-        }
-        $data = setPage($model, $cond, 6);
-        $this->assign($data);
-        $this->assign('classes', $classes);
-        $this->display();
-    }
-
-    public function details($id)
-    {
-
-        $model = M("Hotel");
+        $model = M("Guarantee");
 
         $row = $model->find($id);
         $classModel = M('Class');

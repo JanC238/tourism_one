@@ -3537,7 +3537,7 @@
                                                                                             style="line-height:100%;line-height:100%;line-height:100%;line-height:100%;line-height:100%;line-height: 100%; font-family: 'Microsoft YaHei';">网站首页</a></span>
                     <span style=" /*display:block;*/line-height:100%; /*float:left;*/margin-left:5px;margin-right:5px;color:rgb(120, 120, 120);font-size:12px;"
                           class="breadcrumbfuhao">≡</span>
-                    <span style="/*display:block; float:left;*/" class="breadcrumbtext"><a href="<?php echo U('/Route/index');?>"
+                    <span style="/*display:block; float:left;*/" class="breadcrumbtext"><a href="<?php echo U('/Diary/index');?>"
                                                                                            style="line-height:100%;line-height:100%;line-height:100%;line-height:100%;line-height:100%;line-height: 100%; font-family: 'Microsoft YaHei';">旅行日记</a></span>
                 </div>
             </div>
@@ -4017,7 +4017,7 @@
                     <ul>
                         <?php if(is_array($rows)): $i = 0; $__LIST__ = $rows;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$row): $mod = ($i % 2 );++$i;?><li style="margin-bottom:10px;">
                                 <p class="title">
-                                    <a class='articleid' articleid="<?php echo ($row["id"]); ?>" href=""><?php echo ($row["name"]); ?></a></p>
+                                    <a class='articleid' articleid="<?php echo ($row["id"]); ?>" href="<?php echo U('/Diary/details',['id'=>$row['id']]);?>"><?php echo ($row["name"]); ?></a></p>
                                 <p class="time"><span class="wp-new-ar-pro-time"><?php echo (date('Y-m-d H:i:s',$row["time"])); ?></span></p>
                                 <p class="abstract"><?php echo ($row["intro"]); ?></p>
                                 <p class="wpart-border-line"></p>

@@ -200,6 +200,8 @@ $(document).ready(function(){
 									<td>分类</td>
 									<td>酒店</td>
 									<td>图片</td>
+									<td>市场价</td>
+									<td>价格</td>
 									<td>状态</td>
 									<td>操作</td>
 								</tr>
@@ -212,6 +214,8 @@ $(document).ready(function(){
 										<td>
 											<img src="/lsfb/tourism_one/Public/images/<?php echo ($row["image"]); ?>" width="100px" alt="">
 										</td>
+										<td><?php echo ($row["market_price"]); ?></td>
+										<td><?php echo ($row["price"]); ?></td>
 										<td>
 											<?php if($row['status'] == 1): ?><a href="javascript:;" name="<?php echo ($row["id"]); ?>" class="btn btn-info status">首页显示</a>
 												<?php else: ?>
